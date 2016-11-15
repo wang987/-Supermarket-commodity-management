@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="shangpin-design/html; charset=utf-8" /> 
     <title>查看商品</title>
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <script type="text/javascript" src="js/libs/modernizr.min.js">
+    <script type="text/javascript" >
         function a()
      {
        var r=confirm("您确定要删除吗");
@@ -78,8 +78,6 @@
                 <div class="result-title">
                     <div class="result-list">
                         <a href="shangpin-insert.html"><i class="icon-font"></i>新增商品</a>
-                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
-                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
                     </div>
                 </div>
                 <div class="result-content">
@@ -107,9 +105,9 @@
                             <td>1</td>
 
 
-                            <td>                            
-                                <a class="link-update" href="shangpin-revise.html">修改</a>
-                                <a class="link-del" href="#">删除</a>
+                            <td>
+                                <input type="button" onClick="location.href='shangpin-revise.html'" value="修改">
+                                <input type="button" onclick="a()" value="删除" />
                             </td>
                         </tr>
                         <tr>
@@ -124,8 +122,9 @@
                             <td>35</td>
                             <td></td>
                             <td>
-                                <a class="link-update" href="shangpin-revise.html">修改</a>
-                                <a class="link-del" href="#">删除</a>
+
+                                <input type="button" onClick="location.href='shangpin-revise.html'" value="修改">
+                                <input type="button" onClick="a()" value="删除" />
                             </td>
                         </tr>
                     </table>
