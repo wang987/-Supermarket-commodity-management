@@ -5,8 +5,36 @@
     <title>『添加商品页』</title>
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <script type="text/javascript" src="js/libs/modernizr.min.js">
-
+    <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">
+    window.onload=function(){
+        var title = document.getElementById('title');
+        var number = document.getElementById('number');
+        var bid = document.getElementById('bid');
+        var price = document.getElementById('price');
+        console.log(title.value);
+        title.onblur = function(){
+            if(title.value == ''){
+                alert("商品名不能为空!");
+            }
+            number.onblur =function(){
+                if(number.value == '' || number.value == 0){
+                    alert("商品数量不能为空或0!");
+                }
+            }
+        }
+        bid.onblur = function(){
+            if(bid.value == '' || bid.value == 0){
+                alert("进价不能为空或0!");
+            }
+        }
+        price.onblur = function(){
+            if(price.value == '' || price.value == 0){
+                alert("售价不能为空或0!");
+             }
+        }
+       
+    }
     </script>
 </head>
 <body>
