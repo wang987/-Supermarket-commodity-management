@@ -9,31 +9,42 @@
     <script type="text/javascript">
     window.onload=function(){
         var title = document.getElementById('title');
+        var titleTip = document.getElementById('titleTip');
         var number = document.getElementById('number');
+        var numberTip = document.getElementById('numberTip');
         var bid = document.getElementById('bid');
+        var bidTip = document.getElementById('bidTip');
         var price = document.getElementById('price');
-        console.log(title.value);
+        var priceTip = document.getElementById('priceTip');
+        console.log(titleTip);
         title.onblur = function(){
             if(title.value == ''){
-                alert("商品名不能为空!");
+                titleTip.style.display="inline";
+            }else{
+                titleTip.style.display="none";
             }
-            number.onblur =function(){
-                if(number.value == '' || number.value == 0){
-                    alert("商品数量不能为空或0!");
-                }
+        }
+        number.onblur = function(){
+            if(number.value == ''){
+                numberTip.style.display="inline";
+            }else{
+                numberTip.style.display="none";
             }
         }
         bid.onblur = function(){
             if(bid.value == '' || bid.value == 0){
-                alert("进价不能为空或0!");
+                bidTip.style.display="inline";
+            }else{
+                bidTip.style.display="none";
             }
         }
         price.onblur = function(){
             if(price.value == '' || price.value == 0){
-                alert("售价不能为空或0!");
-             }
+                priceTip.style.display="inline";
+            }else{
+                priceTip.style.display="none";
+            }
         }
-       
     }
     </script>
 </head>
@@ -86,24 +97,28 @@
                                 <th><i class="require-red">*</i>商品名：</th>
                                 <td>
                                     <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <span id="titleTip" style="color:red;display:none">商品名不能为空</span>
                                 </td>               
-							</tr>
+                            </tr>
                             <tr>
                                 <th><i class="require-red">*</i>数量：</th>
                                 <td>
                                     <input class="common-text required" id="number" name="number" size="50" value="" type="text">
+                                    <span id="numberTip" style="color:red;display:none">数量不能为空</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>进价（单位：元）：</th>
                                 <td>
                                     <input class="common-text required" id="bid" name="bid" size="50" value="" type="text">
+                                    <span id="bidTip" style="color:red;display:none">进价不能为空或者0</span>
                                 </td>
                             </tr>
 							<tr>
                                 <th><i class="require-red">*</i>售价（单位：元）：</th>
                                 <td>
                                     <input class="common-text required" id="price" name="price" size="50" value="" type="text">
+                                    <span id="priceTip" style="color:red;display:none">售价不能为空或者0</span>
                                 </td>
                             </tr>
                             
