@@ -17,6 +17,7 @@
         var price = document.getElementById('price');
         var priceTip = document.getElementById('priceTip');
         console.log(titleTip);
+        var push = document.getElementById('push');
         title.onblur = function(){
             if(title.value == ''){
                 titleTip.style.display="inline";
@@ -44,6 +45,9 @@
             }else{
                 priceTip.style.display="none";
             }
+        }
+        push.onclick = function(){
+            alert("您确定要提交吗?");
         }
     }
     </script>
@@ -125,7 +129,7 @@
                             <tr>
                                 <th></th>
                                 <td>
-                                    <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                    <input class="btn btn-primary btn6 mr10" value="提交" type="submit" id="push">
                                     <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
                                 </td>
                             </tr>
