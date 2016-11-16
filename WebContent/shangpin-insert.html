@@ -1,11 +1,69 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @bigtechbull
+ Unwatch 4
+  Star 0
+  Fork 0 wang987/-Supermarket-commodity-management
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
+Branch: master Find file Copy path-Supermarket-commodity-management/WebContent/shangpin-insert.html
+c83b5b3  13 hours ago
+@yuanzzz yuanzzz 修改JS
+2 contributors @yuanzzz @wang987
+RawBlameHistory     
+141 lines (134 sloc)  5.9 KB
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加商品</title>
+    <title>『添加商品页』</title>
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">
+    window.onload=function(){
+        var title = document.getElementById('title');
+        var titleTip = document.getElementById('titleTip');
+        var number = document.getElementById('number');
+        var numberTip = document.getElementById('numberTip');
+        var bid = document.getElementById('bid');
+        var bidTip = document.getElementById('bidTip');
+        var price = document.getElementById('price');
+        var priceTip = document.getElementById('priceTip');
+        console.log(titleTip);
+        title.onblur = function(){
+            if(title.value == ''){
+                titleTip.style.display="inline";
+            }else{
+                titleTip.style.display="none";
+            }
+        }
+        number.onblur = function(){
+            if(number.value == ''){
+                numberTip.style.display="inline";
+            }else{
+                numberTip.style.display="none";
+            }
+        }
+        bid.onblur = function(){
+            if(bid.value == '' || bid.value == 0){
+                bidTip.style.display="inline";
+            }else{
+                bidTip.style.display="none";
+            }
+        }
+        price.onblur = function(){
+            if(price.value == '' || price.value == 0){
+                priceTip.style.display="inline";
+            }else{
+                priceTip.style.display="none";
+            }
+        }
+    }
+    </script>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -27,14 +85,14 @@
         </div>
         <div class="sidebar-content">
             <ul class="sidebar-list">
-			
+            
                 <li>
                     
                     <ul class="sub-menu">
                         <li><a href="shangpin-insert.html"><i class="icon-font">&#xe008;</i>添加商品</a></li>
                         <li><a href="shangpin-design.html"><i class="icon-font">&#xe005;</i>查看商品</a></li>
-						<li><a href="shangpin-rule.html"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
-						<li><a href="shangpin-imexport.html"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
+                        <li><a href="shangpin-rule.html"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
+                        <li><a href="shangpin-imexport.html"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
                     </ul>
                 </li>
                 
@@ -52,28 +110,32 @@
                 <form action="/jscss/admin/design/add" method="post" id="myform" name="myform" enctype="multipart/form-data">
                     <table class="insert-tab" width="100%">
                         <tbody>
-							<tr>
+                            <tr>
                                 <th><i class="require-red">*</i>商品名：</th>
                                 <td>
                                     <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <span id="titleTip" style="color:red;display:none">商品名不能为空</span>
                                 </td>               
-							</tr>
+                            </tr>
                             <tr>
                                 <th><i class="require-red">*</i>数量：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <input class="common-text required" id="number" name="number" size="50" value="" type="text">
+                                    <span id="numberTip" style="color:red;display:none">数量不能为空</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>进价（单位：元）：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <input class="common-text required" id="bid" name="bid" size="50" value="" type="text">
+                                    <span id="bidTip" style="color:red;display:none">进价不能为空或者0</span>
                                 </td>
                             </tr>
-							<tr>
+                            <tr>
                                 <th><i class="require-red">*</i>售价（单位：元）：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <input class="common-text required" id="price" name="price" size="50" value="" type="text">
+                                    <span id="priceTip" style="color:red;display:none">售价不能为空或者0</span>
                                 </td>
                             </tr>
                             
@@ -94,3 +156,5 @@
 </div>
 </body>
 </html>
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
