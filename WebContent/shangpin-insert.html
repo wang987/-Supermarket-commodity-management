@@ -33,14 +33,14 @@
             }
         }
         bid.onblur = function(){
-            if(bid.value == '' || bid.value == 0){
+            if(bid.value == '' || bid.value == 0 || bid.value < 0){
                 bidTip.style.display="inline";
             }else{
                 bidTip.style.display="none";
             }
         }
         price.onblur = function(){
-            if(price.value == '' || price.value == 0){
+            if(price.value == '' || price.value == 0 || price.value < 0){
                 priceTip.style.display="inline";
             }else{
                 priceTip.style.display="none";
@@ -115,14 +115,14 @@
                                 <th><i class="require-red">*</i>进价（单位：元）：</th>
                                 <td>
                                     <input class="common-text required" id="bid" name="bid" size="50" value="" type="text">
-                                    <span id="bidTip" style="color:red;display:none">进价不能为空或者0</span>
+                                    <span id="bidTip" style="color:red;display:none">进价不能为空,负数或者0</span>
                                 </td>
                             </tr>
 							<tr>
                                 <th><i class="require-red">*</i>售价（单位：元）：</th>
                                 <td>
                                     <input class="common-text required" id="price" name="price" size="50" value="" type="text">
-                                    <span id="priceTip" style="color:red;display:none">售价不能为空或者0</span>
+                                    <span id="priceTip" style="color:red;display:none">售价不能为空,负数或者0</span>
                                 </td>
                             </tr>
                             
