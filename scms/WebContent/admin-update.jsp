@@ -34,7 +34,7 @@ else
         </div>
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">          
-                <input type="button" onclick="b()" value="退出" />
+                <input type="button" class="btn btn-primary btn2" onclick="b()" value="退出" />
             </ul>
         </div>
     </div>
