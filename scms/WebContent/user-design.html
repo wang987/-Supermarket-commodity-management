@@ -18,6 +18,18 @@ else
   return false;
   }
 }
+function a()
+{
+var r=confirm("您确定要删除吗");
+if (r==true)
+  {
+  alert("已删除");
+  }
+else
+  {
+  return false;
+  }
+}
     </script>
 </head>
 <body>
@@ -101,8 +113,8 @@ else
 							<td>15954656@qq.com</td>
 							<td>河北师范大学</td>
                             <td>
-                                <a class="link-update" href="user-update.html">修改</a>
-                                <a class="link-delete" href="user-delete.html">删除</a>
+                               <input type="button" onClick=window.location.href='user-update.html' value="修改">
+                               <input type="button" onclick="a()" value="删除" />
                             </td>
                         </tr>
                         <tr>
@@ -119,8 +131,8 @@ else
 							<td>159244656@qq.com</td>
 							<td>河北科技大学</td>
                             <td>
-                                <a class="link-update" href="user-update.html">修改</a>
-                                <a class="link-delete" href="user-delete.html">删除</a>
+                                <input type="button" onClick=window.location.href='user-update.html' value="修改">
+                                <input type="button" onclick="a()" value="删除" />
                             </td>
                         </tr>
                     </table>
