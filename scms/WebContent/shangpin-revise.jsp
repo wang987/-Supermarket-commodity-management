@@ -8,6 +8,32 @@
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">
+    	window.onload = function(){
+    		var bid = document.getElementById('bid');
+            var bidTip = document.getElementById('bidTip');
+            var price = document.getElementById('price');
+            var priceTip = document.getElementById('priceTip');
+            var push = document.getElementById('push');
+            bid.onblur = function(){
+                if(bid.value =='' || bid.value < '0' || bid.value == '0'){
+                    bidTip.style.display ="inline";
+                }else{
+                    bidTip.style.display ="display";
+                }
+            }
+             price.onblur = function(){
+                if(price.value =='' || price.value < '0' || price.value == '0'){
+                    priceTip.style.display ="inline";
+                }else{
+                    priceTip.style.display ="display";
+                }
+            }
+             push.onclick = function(){
+                alert("您确定要提交吗?");
+        }
+    	}
+    </script>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -56,16 +82,16 @@
                             
                             <tr>
                                 <th>进价：</th>
-                                <td><textarea name="content" class="common-textarea" id="content" cols="10" style="width: 98%;" rows="2"></textarea></td>
+                                <td><textarea name="content" class="common-textarea" id="bid" cols="10" style="width: 60%;" rows="1"></textarea><span id="bidTip" style="color:red;display:none">进价不能为空,负数或0</span></td>
                             </tr>
                             <tr>
                                 <th>售价：</th>
-                                <td><textarea name="content" class="common-textarea" id="content" cols="10" style="width: 98%;" rows="2"></textarea></td>
+                                <td><textarea name="content" class="common-textarea" id="price" cols="10" style="width:60%;" rows="1"></textarea><span id="priceTip" style="color:red;display:none">售价不能为空,负数或0</span></td>
                             </tr>
                             <tr>
                                 <th></th>
                                 <td>
-                                    <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                    <input class="btn btn-primary btn6 mr10" value="提交" type="submit" id="push">
                                     <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
                                 </td>
                             </tr>
