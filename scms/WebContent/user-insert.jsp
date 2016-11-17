@@ -21,8 +21,7 @@
         </div>
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
-                <li><a href="admin-update.jsp">修改管理员密码</a></li>
-                <li><a href="admin-login.jsp">退出</a></li>
+               <input type="button" class="btn btn-primary btn2" onclick="b()" value="退出" />
             </ul>
         </div>
     </div>
@@ -39,6 +38,7 @@
                     <ul class="sub-menu">
                         <li><a href="user-insert.jsp"><i class="icon-font">&#xe017;</i>添加用户</a></li>
                         <li><a href="user-design.jsp"><i class="icon-font">&#xe037;</i>查看用户</a></li>
+                        <li><a href="admin-update.jsp"><i class="icon-font">&#xe047;</i>修改管理员密码</a></li>
                     </ul>
                 </li>
 
