@@ -84,14 +84,12 @@ else
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="user-insert.html"><i class="icon-font"></i>添加用户</a>
+                        <a href="user-insert.jsp"><i class="icon-font"></i>添加用户</a>
                     </div>
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
-                            <th>排序</th>
                             <th>ID</th>
                             <th>登录名</th>
 							<th>姓名</th>
@@ -101,12 +99,6 @@ else
 							<th>学校</th>
                             <th>操作</th>
                         </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="59" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
                             <td>59</td>
                             <td>artichoke</td>
 							<td>张三</td>
@@ -120,11 +112,6 @@ else
                             </td>
                         </tr>
                         <tr>
-                            <td class="tc"><input name="id[]" value="58" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="58" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
                             <td>58</td>
                             <td>hyacinth</td>
 							<td>李四</td>

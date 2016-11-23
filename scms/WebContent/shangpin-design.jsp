@@ -84,9 +84,7 @@
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
-                        <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
-                            <th>排序</th>
+                        <tr>                          
                             <th>ID</th>
                             <th>商品名称</th>
                             <th>库存</th>
@@ -95,29 +93,17 @@
                             <th>操作</th>
                         </tr>
                         <tr>
-                            <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="59" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
                             <td>59</td>
                             <td>发哥经典</td>
                             <td>0</td>
                             <td>2</td>
                             <td>1</td>
-
-
                             <td>
                                 <input type="button" onClick="location.href='shangpin-revise.jsp'" value="修改">
                                 <input type="button" onclick="a()" value="删除" />
                             </td>
                         </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="58" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="58" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
+                        <tr>                            
                             <td>58</td>
                             <td>黑色经典</td>
                             <td>0</td>

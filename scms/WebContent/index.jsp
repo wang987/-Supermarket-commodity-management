@@ -64,34 +64,8 @@
             <div class="result-title">
                 <h1>系统基本信息</h1>
             </div>
-            <div class="result-content">
-                <ul class="sys-info-list">
-                    <li>
-                        <label class="res-lab">操作系统</label><span class="res-info">WINNT</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">运行环境</label><span class="res-info">Apache/2.2.21 (Win64) PHP/5.3.10</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">PHP运行方式</label><span class="res-info">apache2handler</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">静静设计-版本</label><span class="res-info">v-0.1</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">上传附件限制</label><span class="res-info">2M</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">北京时间</label><span class="res-info">2014年3月18日 21:08:24</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">服务器域名/IP</label><span class="res-info">localhost [ 127.0.0.1 ]</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">Host</label><span class="res-info">127.0.0.1</span>
-                    </li>
-                </ul>
-            </div>
+            <p>&nbsp&nbsp此系统为校园超市商品管理系统，专门为校园超市管理员定制，管理员能够方便管理商品，清楚了解盈利</p>
+            
         </div>
         <div class="result-wrap">
             <div class="result-title">
@@ -99,11 +73,9 @@
             </div>
             <div class="result-content">
                 <ul class="sys-info-list">
+                    
                     <li>
-                        <label class="res-lab">官方交流网站：</label><span class="res-info"><a href="http://user.qzone.qq.com/913737303/infocenter?ptsig=fwuIGucgSq7VB3N8vMjtbG8F-lEbvyN44NaOi-8MrHw_" title="有主机上线设计" target="_blank">jscss.me</a></span>
-                    </li>
-                    <li>
-                        <label class="res-lab">官方交流QQ群：</label><span class="res-info"><a class="qq-link" target="_blank" href="http://user.qzone.qq.com/913737303/infocenter?ptsig=fwuIGucgSq7VB3N8vMjtbG8F-lEbvyN44NaOi-8MrHw_"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="JS-前端开发" title="JS-前端开发"></a> </span>
+                        <label class="res-lab">官方交流QQ群：</label>182769045 </span>
                     </li>
                 </ul>
             </div>

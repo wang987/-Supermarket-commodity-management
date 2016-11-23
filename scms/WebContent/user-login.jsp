@@ -22,12 +22,11 @@
      </script>
 </head>
 <body>
-
 <div class="admin_login_wrap">
     <h1>后台管理</h1>
     <div class="adming_login_border">
         <div class="admin_input">
-            <form action="shangpin-design.jsp" method="post">
+            <form action="index.jsp" method="post">
                 <ul class="admin_items">
                     <li>
                         <label for="user">用户名：</label>
@@ -46,5 +45,6 @@
     </div>
     
 </div>
+
 </body>
 </html>
