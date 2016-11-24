@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.course.entity.LoginUser;
 import com.sltl.userlogin.service.UserLoginServiceImpl;
 
 
@@ -21,8 +22,12 @@ public class UserLoginController {
 	@Resource
 	private UserLoginServiceImpl userLoginServiceImpl;
 	@RequestMapping("login")
-	public String login(@RequestParam("Verification") String verification,@RequestParam("loginName") String name,@RequestParam("password") String password, HttpSession session){
+	public String login(@RequestParam("Verification") String verification,
+			@RequestParam("loginName") String name,@RequestParam("password") String password,
+			HttpSession session){
+	
 		//验证账号密码，还有验证码
+
 		return password;
 		
 	}
