@@ -1,14 +1,12 @@
 package com.sltl.userlogin.controller;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.course.entity.LoginUser;
 import com.sltl.userlogin.service.UserLoginServiceImpl;
+
 
 
 /**
