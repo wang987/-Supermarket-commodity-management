@@ -8,8 +8,8 @@
     <link href="css/admin_login.css" rel="stylesheet" type="text/css" />
         <style>
    
-         body {background-image:url(images/1.jpg);}
-         h2 {font-size:40px; text-align:center; }
+        body {background-image:url(images/2.jpg);}
+         h2 {font-size:49px; text-align:center;color:white;font-family:'宋体' ;font-weight:400; }
         
         </style>
 	<script type="text/javascript">  
