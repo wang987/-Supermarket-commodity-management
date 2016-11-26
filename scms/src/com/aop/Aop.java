@@ -7,6 +7,7 @@ import java.sql.Statement;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.SessionFactory;
@@ -32,6 +33,7 @@ public class Aop {
 	/**
 	 * @describe 上下文常量
 	 */
+	private static HttpSession session;
 	private static ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
 	/**
 	 * @param 初始化Aop
@@ -45,9 +47,7 @@ public class Aop {
 	 */
 	public void before() throws Throwable {
 		System.out.println("before");
-		String dbInfo=DataSourceContextHolder.getDbInfo();
-		
-		
+		/*String dbInfo=DataSourceContextHolder.getDbInfo();	
 		System.out.println("deinfo:"+dbInfo);
 		if(dbInfo!=null&&!dbInfo.equals("")){
 			System.out.println("进来了，不等于NULL");
@@ -57,7 +57,6 @@ public class Aop {
 			}
 			
 			BoneCPDataSource  basicDataSource = (BoneCPDataSource)context.getBean("dataSource1");
-			
 			System.out.println("未改变得："+basicDataSource.getJdbcUrl());
 			basicDataSource.getConnection().close();
 			basicDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/"+infos[0]+"?useUnicode=true&characterEncoding=UTF-8");
@@ -66,23 +65,9 @@ public class Aop {
 				basicDataSource.setPassword(infos[2]);
 			else
 				basicDataSource.setPassword("");
+
 			
-			
-			System.out.println(basicDataSource.getJdbcUrl());
-			System.out.println(basicDataSource.getUsername());
-			System.out.println(basicDataSource.getPassword());
-			ApplicationContext a=new ClassPathXmlApplicationContext("applicationContext.xml");
-			((AbstractApplicationContext) a).refresh();
-			
-			
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection=DriverManager.getConnection(basicDataSource.getJdbcUrl(),basicDataSource.getUsername(),basicDataSource.getPassword());
-			Statement statement=connection.createStatement();
-			ResultSet resultSet=statement.executeQuery("Select name from student where id=1");
-			while(resultSet.next()){
-				System.out.println("姓名："+resultSet.getString("name"));
-			}
-		}
+		}*/
 	}
 
 	

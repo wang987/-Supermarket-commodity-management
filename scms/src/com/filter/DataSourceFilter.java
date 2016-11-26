@@ -18,7 +18,6 @@ import com.aop.DataSourceContextHolder;
  */
 public class DataSourceFilter implements Filter{
 
-	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		
@@ -37,7 +36,6 @@ public class DataSourceFilter implements Filter{
 		chain.doFilter(request, response);
 	}
 
-	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		
