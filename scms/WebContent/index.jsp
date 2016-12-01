@@ -34,10 +34,10 @@
 			
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
-                        <li><a href="shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a></li>
-						<li><a href="shangpin-rule.jsp"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
-						<li><a href="shangpin-imexport.jsp"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
+                        <li><a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
+                        <li><a href="${ctx}/shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a></li>
+						<li><a href="${ctx}/shangpin-rule.jsp"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
+						<li><a href="${ctx}/shangpin-imexport.jsp"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
                     </ul>
                 </li>
                 
@@ -55,10 +55,10 @@
             </div>
             <div class="result-content">
                 <div class="short-wrap">
-                    <a href="shangpin-insert.jsp"><i class="icon-font">&#xe001;</i>添加商品</a>
-                    <a href="shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a>
-                    <a href="shangpin-rule.jsp"><i class="icon-font">&#xe048;</i>商品销售规律</a>
-                    <a href="shangpin-imexport.jsp"><i class="icon-font">&#xe041;</i>商品进出货</a>
+                    <a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe001;</i>添加商品</a>
+                    <a href="${ctx}/shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a>
+                    <a href="${ctx}/shangpin-rule.jsp"><i class="icon-font">&#xe048;</i>商品销售规律</a>
+                    <a href="${ctx}/shangpin-imexport.jsp"><i class="icon-font">&#xe041;</i>商品进出货</a>
                 </div>
             </div>
         </div>

@@ -71,5 +71,13 @@ public abstract class BaseDao{
 		}
 		return (Adminlogin) query.uniqueResult();
 	}
+	//ÃÌº”…Ã∆∑
+	public String addProduct(String sql) throws SQLException {
+		// TODO Auto-generated method stub
+		Statement statement= ConnectionManager.getInstance().getConnection().createStatement();
+		statement.executeUpdate(sql);
+		String s = "sucess";		
+		return s;
+	}
 	
 }
