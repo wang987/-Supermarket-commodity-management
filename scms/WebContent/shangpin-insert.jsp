@@ -51,7 +51,7 @@
             }
         }
         push.onclick = function(){
-            alert("您确定要添加此商品吗?");
+            alert("您确定要提交吗?");
         }
     }
     </script>
@@ -62,13 +62,13 @@
         <div class="topbar-logo-wrap clearfix">
             <h1 class="topbar-logo none"><a href="${ctx}/index.jsp" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
-                <li><a class="on" href="${ctx}/index.jsp">首页</a></li>
+                <li><a class="on" href="index.jsp">首页</a></li>
             </ul>
         </div>
                 
         </div>
     </div>
-
+</div>
 <div class="container clearfix">
     <div class="sidebar-wrap">
         <div class="sidebar-title">
@@ -81,15 +81,9 @@
                     
                     <ul class="sub-menu">
                         <li><a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
-<<<<<<< HEAD
                         <li><a href="${ctx}/queryproduct/query"><i class="icon-font">&#xe005;</i>查看商品</a></li>
 						<li><a href="${ctx}/rulefindall/findall?btn=0"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
 						<li><a href="${ctx}/productimex/product"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
-=======
-                        <li><a href="${ctx}/shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a></li>
-                        <li><a href="${ctx}/shangpin-rule.jsp"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
-                        <li><a href="${ctx}/shangpin-imexport.jsp"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
->>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
                     </ul>
                 </li>
                 
@@ -100,56 +94,44 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="${ctx}/index.jsp">首页</a><span class="crumb-step">&gt;</span><span>添加商品</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.jsp">首页</a><span class="crumb-step">&gt;</span></span><span>添加商品</span></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
-<<<<<<< HEAD
                 <form action="${ctx}/shangpin-insert/add" method="post" id="myform" name="myform" >
-=======
-                <form action="${ctx}/shangpin-insert/add" method="post" id="myform" name="myform">
->>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
                     <table class="insert-tab" width="100%">
                         <tbody>
                             <tr>
-                                <td><i class="require-red">*</i>商品名：</td>
+                                <th><i class="require-red">*</i>商品名：</th>
                                 <td>
-<<<<<<< HEAD
                                     <input class="common-text required" id="title" name="name" size="50" value="" type="text">
-=======
-                                    <input class="common-text required" id="title" name="name" size="50" type="text">
->>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
                                     <span id="titleTip" style="color:red;display:none">商品名不能为空</span>
                                 </td>               
                             </tr>
                             <tr>
-                                <td><i class="require-red">*</i>数量：</td>
+                                <th><i class="require-red">*</i>数量：</th>
                                 <td>
-<<<<<<< HEAD
                                     <input class="common-text required" id="number" name="count" size="50" value="" type="text">
-=======
-                                    <input class="common-text required" id="number" name="count" size="50" type="text">
->>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
                                     <span id="numberTip" style="color:red;display:none">数量不能为空</span>
                                 </td>
                             </tr>
                             <tr>
-                                <td><i class="require-red">*</i>进价（单位：元）：</td>
+                                <th><i class="require-red">*</i>进价（单位：元）：</th>
                                 <td>
-                                    <input class="common-text required" id="bid" name="bid" size="50" type="text">
+                                    <input class="common-text required" id="bid" name="bid" size="50" value="" type="text">
                                     <span id="bidTip" style="color:red;display:none">进价不能为空,负数或者0</span>
                                 </td>
                             </tr>
                             <tr>
-                                <td><i class="require-red">*</i>售价（单位：元）：</td>
+                                <th><i class="require-red">*</i>售价（单位：元）：</th>
                                 <td>
-                                    <input class="common-text required" id="price" name="price" size="50" type="text">
+                                    <input class="common-text required" id="price" name="price" size="50" value="" type="text">
                                     <span id="priceTip" style="color:red;display:none">售价不能为空,负数或者0</span>
                                 </td>
                             </tr>
                             
                             <tr>
-                                <td></td>
+                                <th></th>
                                 <td>
                                     <input class="btn btn-primary btn6 mr10" value="提交" type="submit" id="push">
                                     <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
@@ -164,8 +146,4 @@
     <!--/main-->
 </div>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
