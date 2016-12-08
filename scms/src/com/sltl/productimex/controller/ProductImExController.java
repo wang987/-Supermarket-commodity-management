@@ -29,18 +29,18 @@ public class ProductImExController {
 		
 		int end = 0;
 		int nowpage=0;
-		if(request.getParameter("nowpage")!=null){
+		
+		
+		if(session.getAttribute("imexend")!=null){
+			end=Integer.parseInt((session.getAttribute("imexend")).toString());
+		}else{
+			end=this.productimexServiceImpl.a();
+		}
+		if(request.getParameter("nowpage")!=null&&Integer.parseInt(request.getParameter("nowpage"))>0&&Integer.parseInt(request.getParameter("nowpage"))<=end){
 			nowpage=Integer.parseInt(request.getParameter("nowpage"));
 		}else{
 			nowpage=1;
 		}
-		
-		if(session.getAttribute("end")!=null){
-			end=Integer.parseInt((session.getAttribute("end")).toString());
-		}else{
-			end=this.productimexServiceImpl.a();
-		}
-		
 		if(nowpage<1||nowpage>end){
 			return"shangpin-imexport";
 		}

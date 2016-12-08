@@ -35,8 +35,8 @@ public class QueryController {
 		int nowpage=0;
 		
 		
-		if(session.getAttribute("end")!=null){
-			end=Integer.parseInt((session.getAttribute("end")).toString());
+		if(session.getAttribute("queryend")!=null){
+			end=Integer.parseInt((session.getAttribute("queryend")).toString());
 		}else{
 			end=this.queryServiceImpl.findAllByProfits();
 		}
@@ -46,7 +46,9 @@ public class QueryController {
 		}else{
 			nowpage=1;
 		}
-		
+		if(nowpage<1||nowpage>end){
+			return "shangpin-rule";
+		}
 		
 		List<Product> list=this.queryServiceImpl.findAll(pageSize,nowpage);
 		

@@ -24,7 +24,7 @@ public class ProductImExDaoImpl extends BaseDao {
 
 	public int am() throws SQLException {
 		// TODO Auto-generated method stub
-		String sql="select product.productid id,name,count,bid,price,salecount,profit from product,productsales,sales where product.productid=productsales.productid and productsales.salesid=sales.salesid";
+		String sql="select p.productid productid, name,count,bid,price,profit,sum(salecount) salecount,sum(salecount)*profit profits from product p,sales s,productsales ps where s.salesid=ps.salesid and p.productid=ps.productid  group by name ";
 		return super.finEndPage(sql);
 	}
 

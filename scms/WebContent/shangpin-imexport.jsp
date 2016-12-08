@@ -148,9 +148,7 @@
                         
                     </table>
                     <div class="list-page">
-                    	当前是第${nowpage}页，共有${imexend}页<br />
-						<a href="${ctx}/productimex/product?nowpage=1">第一页</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<ul class="pagination">
+                    	<ul class="pagination">
 							  <li><a href="${ctx}/productimex/product?nowpage=${nowpage-1}">«</a></li>
 							  <c:forEach begin="1" end="${imexend}" step="1" var="i">
 							  	<li><a href="${ctx}/productimex/product?nowpage=${i}">${i}</a></li>
