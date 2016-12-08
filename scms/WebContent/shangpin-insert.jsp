@@ -7,9 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <title>『添加商品页』</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
+    <script type="text/javascript" src="${ctx}/js/libs/modernizr.min.js"></script>
     <script type="text/javascript">
     window.onload=function(){
         var title = document.getElementById('title');
@@ -60,7 +60,7 @@
 <div class="topbar-wrap white">
     <div class="topbar-inner clearfix">
         <div class="topbar-logo-wrap clearfix">
-            <h1 class="topbar-logo none"><a href="index.jsp" class="navbar-brand">后台管理</a></h1>
+            <h1 class="topbar-logo none"><a href="${ctx}/index.jsp" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
                 <li><a class="on" href="index.jsp">首页</a></li>
             </ul>
@@ -80,10 +80,10 @@
                 <li>
                     
                     <ul class="sub-menu">
-                        <li><a href="shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
-                        <li><a href="shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a></li>
-                        <li><a href="shangpin-rule.jsp"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
-                        <li><a href="shangpin-imexport.jsp"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
+                        <li><a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
+                        <li><a href="${ctx}/queryproduct/query"><i class="icon-font">&#xe005;</i>查看商品</a></li>
+						<li><a href="${ctx}/rulefindall/findall?btn=0"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
+						<li><a href="${ctx}/productimex/product"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
                     </ul>
                 </li>
                 
@@ -98,20 +98,20 @@
         </div>
         <div class="result-wrap">
             <div class="result-content">
-                <form action="/jscss/admin/design/add" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <form action="${ctx}/shangpin-insert/add" method="post" id="myform" name="myform" >
                     <table class="insert-tab" width="100%">
                         <tbody>
                             <tr>
                                 <th><i class="require-red">*</i>商品名：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <input class="common-text required" id="title" name="name" size="50" value="" type="text">
                                     <span id="titleTip" style="color:red;display:none">商品名不能为空</span>
                                 </td>               
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>数量：</th>
                                 <td>
-                                    <input class="common-text required" id="number" name="number" size="50" value="" type="text">
+                                    <input class="common-text required" id="number" name="count" size="50" value="" type="text">
                                     <span id="numberTip" style="color:red;display:none">数量不能为空</span>
                                 </td>
                             </tr>
@@ -147,5 +147,3 @@
 </div>
 </body>
 </html>
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help

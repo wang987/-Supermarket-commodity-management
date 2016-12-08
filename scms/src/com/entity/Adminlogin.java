@@ -11,6 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+/**
+ * @author 吴森
+ * @Time 2016-11-27 14:49:01
+ * @describe 这是管理员账号密码的映射类
+ */
 
 @Entity
 @Table(name="adminlogin")

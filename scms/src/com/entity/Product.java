@@ -1,5 +1,9 @@
 package com.entity;
-
+/**
+ * @author 吴森
+ * @Time 2016-11-27 14:49:01
+ * @describe 这是商品信息的类
+ */
 public class Product {
 	private Integer productId;
 	private String name;

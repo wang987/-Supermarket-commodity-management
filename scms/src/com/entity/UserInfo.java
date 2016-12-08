@@ -16,6 +16,11 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+/**
+ * @author 吴森
+ * @Time 2016-11-27 14:49:01
+ * @describe 这是用户信息映射类
+ */
 @Entity
 @Table(name="userinfo")
 

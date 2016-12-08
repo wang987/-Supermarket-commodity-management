@@ -26,6 +26,8 @@ public final class ConnectionManager {
     private ConnectionManager() throws SQLException, PropertyVetoException {  
        
     	String dbInfo=DataSourceContextHolder.getDbInfo();
+    	
+    	System.out.println("пео╒"+dbInfo);
 		String infos[]=dbInfo.split(",");
 		String str="jdbc:mysql://localhost:3306/"+infos[0]+"?useUnicode=true&characterEncoding=UTF-8";
     	

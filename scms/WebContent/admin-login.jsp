@@ -1,56 +1,115 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>『校园超市商品』后台管理</title>
-    <link href="${ctx}/css/admin_login.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8"/>
+    <title>后台登录</title>
+    <meta name="author" content="DeathGhost"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/login.css"/>
     <style>
-   
-         body {background-image:url(images/2.jpg);}
-         h2 {font-size:49px; text-align:center;color:white;font-family:'宋体' ;font-weight:400; }
-        
-        </style>
-	<script type="text/javascript">  
-    function checkuser() {  
-        if($('user') == "admin" && $('pwd') =="123456") {  
-           return true; 
-        }else { 
-           alert("账号或密码有误，请重新登录");
-			return false;
+        body {
+            height: 100%;
+            background: #16a085;
+            overflow: hidden;
         }
-     }  
-       
-     function $(id) {  
-       return document.getElementById(id).value;  
-     }  
-	</script>
+
+        canvas {
+            z-index: -1;
+            position: absolute;
+        }
+    </style>
+    <script src="${ctx}/js/libs/jquery.min.js" type="text/javascript"></script>
+    <script src="${ctx}/js/libs/verificationNumbers.js" type="text/javascript"></script>
+    <script src="${ctx}/js/libs/Particleground.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            //粒子背景特效
+            $('body').particleground({
+                dotColor: '#509ee1',
+                lineColor: '#509ee1'
+            });
+            createCode();
+        });
+        function CheckForm() {
+            if ($("#username").val() == "") {
+                alert("请输入用户名！");
+                $("#username").focus();
+                return false;
+            }
+            if ($("#password").val() == "") {
+                alert("请输入密码！");
+                $("#password").focus();
+                return false;
+            }
+            if ($("#question").val() != 0 && $("#answer").val() == "") {
+                alert("请输入问题回答！");
+                $("#answer").focus();
+                return false;
+            }
+        }
+
+        $(function () {
+            $(".loginForm input").keydown(function () {
+                $(this).prev().hide();
+            }).blur(function () {
+                if ($(this).val() == "") {
+                    $(this).prev().show();
+                }
+            });
+
+            $("#username").focus(function () {
+                $("#username").attr("class", "uname inputOn");
+            }).blur(function () {
+                $("#username").attr("class", "uname input");
+            });
+
+            $("#password").focus(function () {
+                $("#password").attr("class", "pwd inputOn");
+            }).blur(function () {
+                $("#password").attr("class", "pwd input");
+            });
+
+            $("#question").focus(function () {
+                $(".quesArea").attr("class", "quesAreaOn");
+            }).blur(function () {
+                $(".quesAreaOn").attr("class", "quesArea");
+            });
+
+            $("#answer").focus(function () {
+                $(".quesArea").attr("class", "quesAreaOn");
+            }).blur(function () {
+                $(".quesAreaOn").attr("class", "quesArea");
+            });
+
+            $("#username").focus();
+        });
+    </script>
 </head>
 <body>
-<div class="admin_login_wrap">
-    <h2>后台管理</h2>
-    <div class="adming_login_border">
-        <div class="admin_input">
-            <form action="user-design.jsp" method="post">
-                <ul class="admin_items">
-                    <li>
-                        <label for="user"></label>
-                        <input type="text" name="username" placeholder="请输入您的ID" value="" id="user" size="40" class="admin_input_style" />
-                    </li>
-                    <li>
-                        <label for="pwd"></label>
-                        <input type="password" name="pwd" placeholder="请输入您的密码" value="" id="pwd" size="40" class="admin_input_style" />
-					</li>
-					<li>
-                        <input type="submit" tabindex="3" value="提交" class="btn btn-primary" onclick="return checkuser()"/>
-                    </li>
-                </ul>
-            </form>
-        </div>
-    </div>
-</div>
+<dl class="admin_login">
+    <dt>
+        <strong>SLTL后台管理系统</strong>
+        <em>SLTL Management System</em>
+    </dt>
+       <form action="${ctx}/adminlogin/checkAdmin" method="post" onSubmit="return CheckForm()">
+        <dd class="user_icon">
+            <input type="text" placeholder="管理员账号" id="username" name="adminName" class="login_txtbx"/>
+        </dd>
+        <dd class="pwd_icon">
+            <input type="password" id="password" name="adminpassword" placeholder="密码" class="login_txtbx"/>
+        </dd>
+        <dd>
+            <input type="submit" value="立即登陆" class="submit_btn"/>
+            <input type="hidden" name="dopost" value="login"/>
+        </dd>
+    </form>
+    <dd>
+        <p>© 2015-2016 AMJ 版权所有</p>
+        <p>沪xx-xxxxx-x</p>
+    </dd>
+</dl>
 </body>
 </html>

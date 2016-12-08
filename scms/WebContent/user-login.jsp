@@ -31,13 +31,13 @@
  
      </script>
 </head>
-<body>
+<body style="background-color:#FFFFE0;">
 <div class="admin_login_wrap">
     <h2>用户登录</h2>
-   
+   	<h4 align="center" style="color:red;">${errormessage}</h4>
     <div class="adming_login_border">
         <div class="admin_input">
-            <form action="userlogin/login">
+            <form action="${ctx}/userlogin/login">
                 <ul class="admin_items">
                     <li>
                         <label for="user">用户名：</label>
@@ -50,7 +50,7 @@
                     </li>
                      <li>
                         <input type="text" name="yzm" size="8" class="admin_input_style" />
-                        <img src="CheckCodeServlet" id="Yzm" onclick="this.src=this.src+'?'"/>
+                        <img src="${ctx}/CheckCodeServlet" id="Yzm" onclick="this.src=this.src+'?'"/>
                         <a href="javascript:Yzm.onclick()">看不清，换一张</a>
                     </li>
                     <li>

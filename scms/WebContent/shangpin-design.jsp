@@ -7,30 +7,52 @@
 <head>
 <meta http-equiv="Content-Type" content="shangpin-design/html; charset=utf-8" /> 
     <title>查看商品</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
+   	<style type="text/css">
+   		ul.pagination {
+	    display: inline-block;
+	    padding: 0;
+	    margin: 0;
+		}
+	
+		ul.pagination li {display: inline;}
+	
+		ul.pagination li a {
+		    color: black;
+		    float: left;
+		    padding: 8px 16px;
+		    text-decoration: none;
+		}
+		
+   		
+   	</style>
     <script type="text/javascript" >
-        function a()
-     {
-       var r=confirm("您确定要删除吗");
-       if (r==true)
-     {
-       alert("已删除");
-  }
-     else
-  {
-  return false;
-  }
-}
+        //写一个表单点击删除了以后，然后跳转，然后传参
+    	function a(index)
+     	{
+        	var i=document.getElementsByClassName('productid')[index].innerText;
+       		var a=document.getElementById("submita").href = "${ctx}/delete/delete?productid="+i; 
+       		alert(a);
+       		document.getElementById("submita").click();
+     	}
+        function alter(index){
+        	//获得值
+        	var name=document.getElementsByClassName('name')[index].innerText;
+        	var count=document.getElementsByClassName('count')[index].innerText;
+        	var a=document.getElementById("submita").href = "${ctx}/shangpin-revise.jsp?name="+encodeURIComponent(name)+"&count="+count; 
+       		document.getElementById("submita").click();
+        }
     </script>
 </head>
 <body>
+<a id="submita" href="${ctx}/delete/delete?productid=1" style="display:none;"></a>
 <div class="topbar-wrap white">
     <div class="topbar-inner clearfix">
         <div class="topbar-logo-wrap clearfix">
-            <h1 class="topbar-logo none"><a href="index.jsp" class="navbar-brand">后台管理</a></h1>
+            <h1 class="topbar-logo none"><a href="${ctx}/index.jsp" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
-                <li><a class="on" href="index.jsp">首页</a></li>
+                <li><a class="on" href="${ctx}/index.jsp">首页</a></li>
             </ul>
         </div>
                 
@@ -47,10 +69,10 @@
 			
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
-                        <li><a href="shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a></li>
-						<li><a href="shangpin-rule.jsp"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
-						<li><a href="shangpin-imexport.jsp"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
+                        <li><a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
+                        <li><a href="${ctx}/queryproduct/query"><i class="icon-font">&#xe005;</i>查看商品</a></li>
+						<li><a href="${ctx}/rulefindall/findall?btn=0"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
+						<li><a href="${ctx}/productimex/product"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
                     </ul>
                 </li>
                 
@@ -61,11 +83,11 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="index.jsp">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">商品查询</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="${ctx }/index.jsp">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">商品查询</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="/jscss/admin/design/index" method="post">
+                <form action="${ctx}/seesearch/search" method="post">
                     <table class="search-tab">
                         <tr>
                             
@@ -81,7 +103,7 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="shangpin-insert.jsp"><i class="icon-font"></i>新增商品</a>
+                        <a href="${ctx}/shangpin-insert.jsp"><i class="icon-font"></i>新增商品</a>
                     </div>
                 </div>
                 <div class="result-content">
@@ -91,34 +113,38 @@
                             <th>商品名称</th>
                             <th>库存</th>
                             <th>进价</th>
-                            <th>售价</th>                           
+                            <th>售价</th> 
+                            <th>利润</th>                           
                             <th>操作</th>
                         </tr>
-                        <tr>
-                            <td>59</td>
-                            <td>发哥经典</td>
-                            <td>0</td>
-                            <td>2</td>
-                            <td>1</td>
+                        
+                        <c:forEach varStatus="vi" items="${userarr}" var="user" >
+							 <tr>                            
+                            <td class="productid">${user.productId}</td>
+                            <td class="name">${user.name}</td>
+                            <td class="count">${user.count}</td>
+                            <td>${user.bid}</td>
+                            <td>${user.price}</td>
+                            <td>${user.profit}</td>
                             <td>
-                                <input type="button" onClick="location.href='shangpin-revise.jsp'" value="修改">
-                                <input type="button" onclick="a()" value="删除" />
+                                <input type="button" name="${vi.index}" onClick="alter(this.name)" value="修改">
+                                <input type="button" name="${vi.index}" onClick="a(this.name)" value="删除" />
                             </td>
                         </tr>
-                        <tr>                            
-                            <td>58</td>
-                            <td>黑色经典</td>
-                            <td>0</td>
-                            <td>35</td>
-                            <td></td>
-                            <td>
-
-                                <input type="button" onClick="location.href='shangpin-revise.jsp'" value="修改">
-                                <input type="button" onClick="a()" value="删除" />
-                            </td>
-                        </tr>
+						</c:forEach>
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page">
+                    <ul class="pagination">
+					  <li><a href="${ctx}/queryproduct/query?nowpage=${nowpage-1}">«</a></li>
+					  
+					  
+					  <c:forEach begin="1" end="${queryend}" step="1" var="i">
+					  	<li><a href="${ctx}/queryproduct/query?nowpage=${i}">${i}</a></li>
+					  </c:forEach>
+					  <li ><a href="${ctx}/queryproduct/query?nowpage=${nowpage+1}">»</a></li>
+					</ul>
+
+                    </div>
                 </div>
             </form>
         </div>

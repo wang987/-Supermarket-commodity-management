@@ -120,10 +120,11 @@ textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type=
 .list-page a{margin:0 5px;padding:2px 7px;border:1px solid #ccc;background:#f3f3f3;}
 .list-page a:hover{background:#e4e4e4;border:1px solid #908f8f;}
 .list-page .current{margin:0 5px;padding:2px 7px;background:#f60;border:1px solid #fe8101;color:#fff;}
-.select-btn{width:210px;margin:0 auto;height:100px;}
-.radius{width:80px;height:80px;border-radius: 80px;margin-top:20px;background:#ccc;text-align: center;float:left;}
+.select-btn{width:1100px;margin:0 auto;height:200px;background-color: white;}
+.radius{width:500px;height:200px;border-radius: 80px;margin-bottom:20px;margin-top:20px;text-align: center;float:left;}
 .radius-right50{margin-right:50px;}
-.radius p{padding-top: 20px;}
 .clearfloat{zoom: 1;}
 .clearfloat:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.sub{float:left;}
+.sort{margin-left:900px;}
 

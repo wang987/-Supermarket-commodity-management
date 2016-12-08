@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <title>『用户』后台管理</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
     <script type="text/javascript" >
         function b()
 {
@@ -28,9 +28,9 @@ else
 <div class="topbar-wrap white">
     <div class="topbar-inner clearfix">
         <div class="topbar-logo-wrap clearfix">
-            <h1 class="topbar-logo none"><a href="index.jsp" class="navbar-brand">后台管理</a></h1>
+            <h1 class="topbar-logo none"><a href="${ctx}/adminlogin/checkAdmin" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
-                <li><a class="on" href="user-design.html">首页</a></li>
+                <li><a class="on" href="${ctx}/adminlogin/checkAdmin">首页</a></li>
              
             </ul>
         </div>
@@ -52,9 +52,8 @@ else
                 <li>
                     
                     <ul class="sub-menu">
-                        <li><a href="user-insert.jsp"><i class="icon-font">&#xe017;</i>添加用户</a></li>
-                        <li><a href="user-design.jsp"><i class="icon-font">&#xe037;</i>查看用户</a></li>
-                        <li><a href="admin-update.jsp"><i class="icon-font">&#xe047;</i>修改管理员密码</a></li>
+                        <li><a href="${ctx}/adminlogin/addAdmin"><i class="icon-font">&#xe017;</i>添加用户</a></li>
+                        <li><a href="${ctx}/adminlogin/checkAdmin"><i class="icon-font">&#xe037;</i>查看用户</a></li>
                     </ul>
                 </li>
 
@@ -65,44 +64,47 @@ else
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="user-design.jsp">首页</a><span class="crumb-step">&gt;</span></span><span>修改用户</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="${ctx }/adminlogin/checkAdmin">首页</a><span class="crumb-step">&gt;</span></span><span>修改用户</span></div>
         </div>
+        <h4 align="center" font-color="red">${message}</h4>
         <div class="result-wrap">
             <div class="result-content">
-                <form action="/jscss/admin/design/add" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <form action="${ctx}/adminlogin/save" method="post" id="myform" name="myform">
+                	<input type="hidden" name="userinfoid" value="${ui[0].userinfoid}">
                     <table class="insert-tab" width="100%">
                         <tbody>
-                            <tr>
-                                <th><i class="require-red">*</i>原登录名：</th>
+                        	<tr>
+                                <th><i class="require-red">*</i>真实姓名：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <input class="common-text required" name="realname" size="50" value="${ui[0].realname}" type="text">
                                 </td>
                             </tr>
                             <tr>
-                                <th><i class="require-red">*</i>新登录名：</th>
+                                <th><i class="require-red">*</i>登录名：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                    <input class="common-text required"  name="username" size="50" value="${ui[0].username}" type="text">
                                 </td>
                             </tr>
+                           
                             <tr>
-                                <th>原密码：</th>
-                                <td><input class="common-text" name="author" size="50" value="" type="text"></td>
+                                <th>密码：</th>
+                                <td><input class="common-text" name="userpassword" size="50" value="${ui[0].userpassword}" type="text"></td>
                             </tr>
                            <tr>
-                                <th>修改密码为：</th>
-                                <td><input class="common-text" name="author" size="50" value="" type="text"></td>
+                                <th>性别：</th>
+                                <td><input class="common-text" name="sex" size="50" value="${ui[0].sex}" type="text"></td>
                             </tr>
 							<tr>
                                 <th>联系方式：</th>
-                                <td><input class="common-text" name="telephone" size="50" value="" type="text"></td>
+                                <td><input class="common-text" name="tel" size="50" value="${ui[0].tel}" type="text"></td>
                             </tr>
 							<tr>
                                 <th>邮箱：</th>
-                                <td><input class="common-text" name="e-mail" size="50" value="" type="text"></td>
+                                <td><input class="common-text" name="email" size="50" value="${ui[0].email}" type="text"></td>
                             </tr>
 							<tr>
                                 <th>学校：</th>
-                                <td><input class="common-text" name="school" size="50" value="" type="text"></td>
+                                <td><input class="common-text" name="school" size="50" value="${ui[0].school}" type="text"></td>
                             </tr>
                             <tr>
                                 <th></th>

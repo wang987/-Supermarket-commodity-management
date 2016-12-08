@@ -7,18 +7,44 @@
 <head>
 	<meta charset="UTF-8">
     <title>商品销售规律</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
+    <script type="text/javascript" src="${ctx}/js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">  
+      
+	    function load(){  
+	        document.getElementById("sectorimg").click();  
+	        alert("1");
+	    } 
+    
+    </script>
+    <style type="text/css">
+   		ul.pagination {
+	    display: inline-block;
+	    padding: 0;
+	    margin: 0;
+		}
+	
+		ul.pagination li {display: inline;}
+	
+		ul.pagination li a {
+		    color: black;
+		    float: left;
+		    padding: 8px 16px;
+		    text-decoration: none;
+		}
+		
+   		
+   	</style>
 </head>
 
 <body>
 <div class="topbar-wrap white">
     <div class="topbar-inner clearfix">
         <div class="topbar-logo-wrap clearfix">
-            <h1 class="topbar-logo none"><a href="index.jsp" class="navbar-brand">后台管理</a></h1>
+            <h1 class="topbar-logo none"><a href="${ctx}/index.jsp" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
-                <li><a class="on" href="index.jsp">首页</a></li>
+                <li><a class="on" href="${ctx}/index.jsp">首页</a></li>
             </ul>
         </div>
                 
@@ -35,10 +61,10 @@
 			
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
-                        <li><a href="shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a></li>
-						<li><a href="shangpin-rule.jsp"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
-						<li><a href="shangpin-imexport.jsp"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
+                        <li><a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
+                        <li><a href="${ctx}/queryproduct/query"><i class="icon-font">&#xe005;</i>查看商品</a></li>
+						<li><a href="${ctx}/rulefindall/findall?btn=0"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
+						<li><a href="${ctx}/productimex/product"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
                     </ul>
                 </li>
                 
@@ -49,11 +75,11 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="index.jsp">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">商品销售规律</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="${ctx }/index.jsp">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">商品销售规律</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="/jscss/admin/design/index" method="post">
+                <form action="${ctx}/rulesearch/search" method="post" class="sub">
                     <table class="search-tab">
                         <tr>
                             <th width="70">关键字:</th>
@@ -62,14 +88,20 @@
                         </tr>
                     </table>
                 </form>
+                <form action="${ctx}/rulefindall/findall" method="post" class="sort" >
+                	<input  class="btn btn-warning btn2" type="submit" name="btn" value="按销量排序"/>
+                	<input  class="btn btn-warning btn2" type="submit" name="btn" value="按利润排序"/>
+                	
+                </form>
             </div>
         </div>
+        
 		<div class="select-btn clearfloat">
 			<div class="radius">
-				<p><a href="#">本周商品销量排序</a></p>
+				<img id="sectorimg"  src="${ctx }/Sector" onclick="this.src=this.src+'?'" />
 			</div>
 			<div class="radius">
-				<p><a href="#">本周商品利润排序</a></p>
+				<img src="${ctx }/Pillar" onclick="this.src=this.src+'?'"/>
 			</div>
 		</div>
         <div class="result-wrap">
@@ -80,7 +112,8 @@
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
-                        <tr>                            <th>ID</th>
+                        <tr>                           
+                         	<th>ID</th>
                             <th>商品名称</th>
                             <th>进价</th>
                             <th>售价</th>
@@ -88,18 +121,28 @@
 							<th>利润</th>
 
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>黑色经典</td>
-                            <td>3</td>
-                            <td>100</td>
-							<td>20</td>
-                            <td>200000</td>
-                            
-                        </tr>
+                         <c:forEach items="${userarr}" var="user" >
+                            <tr>
+	                            <td>${user.id}</td>
+	                            <td>${user.name}</td>
+	                            <td>${user.bid}</td>
+	                            <td>${user.price}</td>
+								<td>${user.solds}</td>
+	                            <td>${user.profits}</td>
+                       		 </tr>
+                         </c:forEach>
+                     
                        
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page">
+                    	<ul class="pagination">
+							  <li><a href="${ctx}/rulefindall/findall?btn=0&nowpage=${nowpage-1}">«</a></li>
+							  <c:forEach begin="1" end="${ruleend}" step="1" var="i">
+							  	<li><a href="${ctx}/rulefindall/findall?btn=0&nowpage=${i}">${i}</a></li>
+							  </c:forEach>
+							  <li ><a href="${ctx}/rulefindall/findall?btn=0&nowpage=${nowpage+1}">»</a></li>
+						</ul>
+                    </div>
                 </div>
             </form>
         </div>

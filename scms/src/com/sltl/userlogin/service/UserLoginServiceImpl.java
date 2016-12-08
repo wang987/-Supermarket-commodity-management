@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.entity.Adminlogin;
+import com.entity.UserInfo;
 import com.sltl.userlogin.dao.UserLoginDaoImpl;
 /**
  * @author  Œ‚…≠
@@ -19,12 +20,9 @@ public class UserLoginServiceImpl {
 	@Resource
 	UserLoginDaoImpl userLoginDaoImpl;
 	
-	public Adminlogin login(String name,String pwd){
+	public UserInfo login(String name,String pwd){
 		return this.userLoginDaoImpl.daooperate(name, pwd);
 	}
 	
-	public String findRealName(String name) throws SQLException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return this.userLoginDaoImpl.daooperate(name);
-	}
+	
 }
