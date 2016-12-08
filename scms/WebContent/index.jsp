@@ -36,9 +36,15 @@
                 <li>
                     <ul class="sub-menu">
                         <li><a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe008;</i>添加商品</a></li>
+<<<<<<< HEAD
                         <li><a href="${ctx}/queryproduct/query"><i class="icon-font">&#xe005;</i>查看商品</a></li>
 						<li><a href="${ctx}/rulefindall/findall?btn=0"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
 						<li><a href="${ctx}/productimex/product"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
+=======
+                        <li><a href="${ctx}/shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a></li>
+						<li><a href="${ctx}/shangpin-rule.jsp"><i class="icon-font">&#xe006;</i>商品销售规律</a></li>
+						<li><a href="${ctx}/shangpin-imexport.jsp"><i class="icon-font">&#xe017;</i>商品进出货</a></li>
+>>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
                     </ul>
                 </li>
                 
@@ -57,9 +63,15 @@
             <div class="result-content">
                 <div class="short-wrap">
                     <a href="${ctx}/shangpin-insert.jsp"><i class="icon-font">&#xe001;</i>添加商品</a>
+<<<<<<< HEAD
                     <a href="${ctx}/queryproduct/query"><i class="icon-font">&#xe005;</i>查看商品</a>
                     <a href="${ctx}/rulefindall/findall?btn=0"><i class="icon-font">&#xe048;</i>商品销售规律</a>
                     <a href="${ctx}/productimex/product"><i class="icon-font">&#xe041;</i>商品进出货</a>
+=======
+                    <a href="${ctx}/shangpin-design.jsp"><i class="icon-font">&#xe005;</i>查看商品</a>
+                    <a href="${ctx}/shangpin-rule.jsp"><i class="icon-font">&#xe048;</i>商品销售规律</a>
+                    <a href="${ctx}/shangpin-imexport.jsp"><i class="icon-font">&#xe041;</i>商品进出货</a>
+>>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
                 </div>
             </div>
         </div>

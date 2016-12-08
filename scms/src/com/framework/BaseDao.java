@@ -55,6 +55,7 @@ public abstract class BaseDao{
 		}
 		return (Adminlogin) query.uniqueResult();
 	}
+<<<<<<< HEAD
 	//查询用户
 	public UserInfo findOneUser(String hql, Object[] params) throws Exception {
 		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
@@ -214,4 +215,15 @@ public abstract class BaseDao{
 			 connection.close();
 			return id+1;
 		}
+=======
+	//添加商品
+	public String addProduct(String sql) throws SQLException {
+		// TODO Auto-generated method stub
+		Statement statement= ConnectionManager.getInstance().getConnection().createStatement();
+		statement.executeUpdate(sql);
+		String s = "sucess";		
+		return s;
+	}
+	
+>>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
 }

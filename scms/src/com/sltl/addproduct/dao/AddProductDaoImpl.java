@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.entity.Product;
 import com.framework.BaseDao;
+<<<<<<< HEAD
 /**
  * @author  ÍõÑÇ³¬
  * @Time 2016-11-27 13:30
@@ -19,6 +20,13 @@ import com.framework.BaseDao;
 public class AddProductDaoImpl extends BaseDao {	
 	public String savaProduct(String name,Integer count,Float bid,Float price) throws SQLException{
 		String sql="insert into product(name,count,bid,price,profit) values('"+name+"',"+count+","+bid+","+price+","+(price-bid)+")";
+=======
+
+@Repository
+public class AddProductDaoImpl extends BaseDao {	
+	public String savaProduct(String name,Integer count,Float bid,Float price) throws SQLException{
+		String sql="insert into product(name,count,bid,price) values('"+name+"',"+count+","+bid+","+price+")";
+>>>>>>> 249f3f2ee49b6599771e812720337603489c2d72
 		return super.addProduct(sql);
 	}
 }
