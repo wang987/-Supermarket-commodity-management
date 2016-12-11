@@ -1,6 +1,9 @@
 package com.sltl.rulefindall.controller;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -31,11 +34,33 @@ public class RuleFindAllController {
 		@RequestMapping("findall")
 		//我需要获取参数按钮和当前页什么的；
 		public String findAll(Model model, HttpServletRequest request,@RequestParam("btn") String btn, HttpSession session) throws SQLException, ClassNotFoundException{
+			System.out.println("进来了");
+			System.out.println("传进来的："+request.getParameter("predate"));
+			System.out.println("传进来的："+request.getParameter("nowdate"));
 			List<ProductImEx> list;
 			
 			int end;
 			int nowpage=0;
 			
+			Date now =new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
+			String nowdate="'"+dateFormat.format( now )+"'"; 
+			
+			Calendar c = Calendar.getInstance();
+		    c.add(Calendar.MONTH, -1);
+		    String predate="'"+  new SimpleDateFormat("yyyy-MM-dd").format(c.getTime())+"'";
+		    
+		    System.out.println("pre:"+predate);
+		    System.out.println("now:"+nowdate);
+			//赋值给日期；
+			if(request.getParameter("predate")!=null){
+				predate="'"+request.getParameter("predate")+"'";
+			}
+			if(request.getParameter("nowdate")!=null){
+				nowdate="'"+request.getParameter("nowdate")+"'";
+			}
+			System.out.println("pre:"+predate);
+			System.out.println("now:"+nowdate);
 			
 			if(session.getAttribute("ruleend")!=null){
 				end=Integer.parseInt((session.getAttribute("ruleend")).toString());
@@ -52,27 +77,34 @@ public class RuleFindAllController {
 			}
 			//判断按什么排序
 			if(btn.equals("按销量排序")){
-				list=this.ruleFindAllService.findAllBySales(nowpage);
-				session.setAttribute("first",list.get(0).getSolds());
-				session.setAttribute("second",list.get(1).getSolds());
-				session.setAttribute("third",list.get(2).getSolds());
-				float sum=0;
-				for(int i=0;i<list.size();i++){
-					sum=sum+list.get(i).getSolds();
+				list=this.ruleFindAllService.findAllBySales(predate,nowdate,nowpage);
+				if(list.size()>=3){
+					session.setAttribute("first",list.get(0).getSolds());
+					session.setAttribute("second",list.get(1).getSolds());
+					session.setAttribute("third",list.get(2).getSolds());
+					float sum=0;
+					for(int i=0;i<list.size();i++){
+						sum=sum+list.get(i).getSolds();
+					}
+					session.setAttribute("sum",sum);
 				}
-				session.setAttribute("sum",sum);
+				
 			}else if(btn.equals("按利润排序")){
-				list=this.ruleFindAllService.findAllByProfits(nowpage);
-				session.setAttribute("first",list.get(0).getProfits());
-				session.setAttribute("second",list.get(1).getProfits());
-				session.setAttribute("third",list.get(2).getProfits());
-				float sum=0;
-				for(int i=0;i<list.size();i++){
-					sum=sum+list.get(i).getProfits();
+				list=this.ruleFindAllService.findAllByProfits(predate,nowdate,nowpage);
+				
+				if(list.size()>=3){
+					session.setAttribute("first",list.get(0).getProfits());
+					session.setAttribute("second",list.get(1).getProfits());
+					session.setAttribute("third",list.get(2).getProfits());
+					float sum=0;
+					for(int i=0;i<list.size();i++){
+						sum=sum+list.get(i).getProfits();
+					}
+					session.setAttribute("sum",sum);
 				}
-				session.setAttribute("sum",sum);
+					
 			}else{
-				list=this.ruleFindAllService.findAllByProfits(nowpage);
+				list=this.ruleFindAllService.findAllByProfits(predate,nowdate,nowpage);
 			}
 			
 			

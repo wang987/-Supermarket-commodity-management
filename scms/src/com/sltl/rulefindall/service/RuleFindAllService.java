@@ -18,14 +18,14 @@ import com.sltl.rulefindall.dao.RuleFindAllDao;
 public class RuleFindAllService {
 	@Resource
 	RuleFindAllDao ruleFindAllDao; 
-	public List<ProductImEx> findAllBySales(int nowPage) throws SQLException {
+	public List<ProductImEx> findAllBySales(String predate, String nowdate,int nowPage) throws SQLException {
 		// TODO Auto-generated method stub
-		return this.ruleFindAllDao.daooperate(nowPage,"");
+		return this.ruleFindAllDao.daooperate(predate,nowdate,nowPage,"");
 	}
 
-	public List<ProductImEx> findAllByProfits(int nowPage) throws SQLException {
+	public List<ProductImEx> findAllByProfits(String predate, String nowdate, int nowPage) throws SQLException {
 		// TODO Auto-generated method stub
-		return this.ruleFindAllDao.daooperate(nowPage);
+		return this.ruleFindAllDao.daooperate(predate,nowdate,nowPage);
 	}
 	
 	public int findEndPage() throws SQLException{

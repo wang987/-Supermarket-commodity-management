@@ -9,13 +9,41 @@
     <title>商品销售规律</title>
     <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
+   	<script type="text/javascript" src="${ctx }/WdatePicker.js"></script>
+   	
     <script type="text/javascript" src="${ctx}/js/libs/modernizr.min.js"></script>
     <script type="text/javascript">  
       
-	    function load(){  
-	        document.getElementById("sectorimg").click();  
-	        alert("1");
-	    } 
+    function time(d){
+    	
+    		var pre=document.getElementById("predate").value;
+        	var now=document.getElementById("nowdate").value;
+        	if(d.tagName=='A'){
+        		if(d.href.indexOf("?")){
+        			d.href=d.href+"&predate="+pre+"&nowdate="+now;
+            		d.click();
+        		}else{
+        			d.href=d.href+"?predate="+pre+"&nowdate="+now;
+            		d.click();
+        		}
+        		
+        	}
+    		if(d.tagName=='INPUT'){
+    			for(var i=0;i<document.getElementsByTagName("form").length;i++){
+    				alert(document.getElementsByTagName("form")[i].action);
+    				var str=document.getElementsByTagName("form")[i].action;
+    				document.getElementsByTagName("form")[i].action=str+"?predate="+pre+"&nowdate="+now; 
+    				alert(document.getElementsByTagName("form")[i].action);
+    			}
+    			
+    			//d.click();
+    		}
+    }
+    
+    
+    
+	    	
+    
     
     </script>
     <style type="text/css">
@@ -70,6 +98,9 @@
                 
             </ul>
         </div>
+        <div><input id="predate" value="1996-06-01" type="text" onClick="WdatePicker()"/></div>
+			
+		<div><input id="nowdate" value="2016-12-10" type="text" onClick="WdatePicker()"/></div>
     </div>
     <!--/sidebar-->
     <div class="main-wrap">
@@ -84,13 +115,13 @@
                         <tr>
                             <th width="70">关键字:</th>
                             <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <td><input  onclick="time(this)" class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
                         </tr>
                     </table>
                 </form>
                 <form action="${ctx}/rulefindall/findall" method="post" class="sort" >
-                	<input  class="btn btn-warning btn2" type="submit" name="btn" value="按销量排序"/>
-                	<input  class="btn btn-warning btn2" type="submit" name="btn" value="按利润排序"/>
+                	<input onclick="time(this)" class="btn btn-warning btn2" type="submit" name="btn" value="按销量排序"/>
+                	<input onclick="time(this)" class="btn btn-warning btn2" type="submit" name="btn" value="按利润排序"/>
                 	
                 </form>
             </div>
@@ -103,6 +134,8 @@
 			<div class="radius">
 				<img src="${ctx }/Pillar" onclick="this.src=this.src+'?'"/>
 			</div>
+			
+			
 		</div>
         <div class="result-wrap">
             <form name="myform" id="myform" method="post">
@@ -136,18 +169,18 @@
                     </table>
                     <div class="list-page">
                     	<ul class="pagination">
-							  <li><a href="${ctx}/rulefindall/findall?btn=0&nowpage=${nowpage-1}">«</a></li>
+							  <li><a onclick="time(this)" href="${ctx}/rulefindall/findall?btn=0&nowpage=${nowpage-1}">«</a></li>
 							  <c:forEach begin="1" end="${ruleend}" step="1" var="i">
-							  	<li><a href="${ctx}/rulefindall/findall?btn=0&nowpage=${i}">${i}</a></li>
+							  	<li><a onclick="time(this)" href="${ctx}/rulefindall/findall?btn=0&nowpage=${i}">${i}</a></li>
 							  </c:forEach>
-							  <li ><a href="${ctx}/rulefindall/findall?btn=0&nowpage=${nowpage+1}">»</a></li>
+							  <li ><a onclick="time(this)" href="${ctx}/rulefindall/findall?btn=0&nowpage=${nowpage+1}">»</a></li>
 						</ul>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <!--/main-->
+    
 </div>
 </body>
 </html>

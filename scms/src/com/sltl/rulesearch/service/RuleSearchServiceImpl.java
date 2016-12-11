@@ -19,7 +19,7 @@ import com.sltl.rulesearch.dao.RuleSearchDaoImpl;
 public class RuleSearchServiceImpl {
 	@Resource
 	RuleSearchDaoImpl ruleSearchDaoImpl;
-	public List<ProductImEx> search(String key) throws SQLException{
-		return this.ruleSearchDaoImpl.daooperate(key);
+	public List<ProductImEx> search(String predate, String nowdate,String key) throws SQLException{
+		return this.ruleSearchDaoImpl.daooperate(predate,nowdate,key);
 	}
 }

@@ -15,8 +15,8 @@ import com.framework.BaseDao;
  */
 @Repository
 public class RuleSearchDaoImpl extends BaseDao{
-	public List<ProductImEx> daooperate(String key) throws SQLException {
-		String sql="select p.productid productid, name,count,bid,price,profit,sum(salecount) salecount from product p,sales s,productsales ps where s.salesid=ps.salesid and p.productid=ps.productid and p.name like'%"+key+"%' group by name";
+	public List<ProductImEx> daooperate(String predate, String nowdate,String key) throws SQLException {
+		String sql="select  p.productid productid, (concat(name,concat('--->',date)))  as name,count,bid,price,profit, salecount from product p,sales s,productsales ps where date < "+nowdate+" and date > "+predate+"  and s.salesid=ps.salesid and p.productid=ps.productid and p.name like'%"+key+"%' ORDER BY date DESC";
 		return super.getAllImExByKey(sql);
 	}
 }
