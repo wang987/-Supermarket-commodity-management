@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+<%
+if(request.getSession().getAttribute("admin")==null)
+{
+	response.sendRedirect("admin-login.jsp")	;
+}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,18 +16,14 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
     <script type="text/javascript" >
-        function b()
-{
-var r=confirm("您确定要退出吗");
-if (r==true)
-  {
-    window.location.href='admin-login.jsp';
-  }
-else
-  {
-  return false;
-  }
-}
+    function exit() {
+    	var msg = "您真的确定要退出吗？\n\n请确认！";
+    	if (confirm(msg)==true){
+    	return true;
+    	}else{
+    	return false;
+    	}
+    }                	
     </script>
 </head>
 <body>
@@ -35,9 +37,10 @@ else
             </ul>
         </div>
         <div class="top-info-wrap">
+        	当前用户：${admin.adminName}
             <ul class="top-info-list clearfix">          
                 
-                 <input type="button" class="btn btn-primary btn2" onclick="b()" value="退出" />
+                 <input type="button" class="btn btn-primary btn2" onclick="exit()" value="退出" />
             </ul>
         </div>
     </div>

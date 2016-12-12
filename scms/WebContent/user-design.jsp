@@ -17,30 +17,22 @@ if(request.getSession().getAttribute("admin")==null)
     <link rel="stylesheet" type="text/css" href="${ctx }/css/main.css"/>
 
     <script type="text/javascript" >
-         function b()
-{
-var r=confirm("您确定要退出吗");
-if (r==true)
-  {
-    window.location.href='${ctx}/admin-login.jsp';
-  }
-else
-  {
-  return false;
-  }
-}
-function a()
-{
-var r=confirm("您确定要删除吗");
-if (r==true)
-  {
-  alert("已删除");
-  }
-else
-  {
-  return false;
-  }
-}
+    function exit() {
+    	var msg = "您真的确定要退出吗？\n\n请确认！";
+    	if (confirm(msg)==true){
+    	return true;
+    	}else{
+    	return false;
+    	}
+    } 
+    function del() {
+    	var msg = "您真的确定要删除吗？\n\n请确认！";
+    	if (confirm(msg)==true){
+    	return true;
+    	}else{
+    	return false;
+    	}
+    }
     </script>
 </head>
 <body>
@@ -57,7 +49,7 @@ else
         	当前用户：${admin.adminName}
             <ul class="top-info-list clearfix">
                
-                 <input type="button" class="btn btn-primary btn2" onclick="b()" value="退出" />
+                 <input type="button" class="btn btn-primary btn2" onclick="exit()" value="退出" />
             </ul>
         </div>
     </div>
@@ -121,8 +113,8 @@ else
 								<td>${item.email}</td>
 								<td>${item.school}</td>
 	                            <td>
-	                               <a  href="${ctx}/adminlogin/modifyAdmin?userinfoid=${item.userinfoid}" >修改</a>
-	                               <a href="${ctx}/adminlogin/del?userinfoid=${item.userinfoid}&username=${item.username}" >删除</a>
+	                               <a href="${ctx}/adminlogin/modifyAdmin?userinfoid=${item.userinfoid}" >修改</a>
+	                               <a onclick="return del()" href="${ctx}/adminlogin/del?userinfoid=${item.userinfoid}&username=${item.username}" >删除</a>
 	                            </td>
 	                        </tr>
                         </c:forEach>

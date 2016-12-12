@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+<%
+if(request.getSession().getAttribute("admin")==null)
+{
+	response.sendRedirect("admin-login.jsp")	;
+}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +16,151 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
     <script type="text/javascript" src="${ctx}/js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">  
+   		var flag;//判断是否可以提交  
+  		var userFlag=false;  
+   		var passwordFlag=false;
+   		var nameFlag=false;
+   		var sexFlag=false;
+   		var telephoneFlag=false;
+   		var emailFlag=false;
+   		var schoolFlag=false;
+   	 //判断用户名输入是否为空，如果为空给出错误提示 
+   		function checkUser(){  
+      		var userElement=document.getElementById("title"); //获得user输入标签  
+      		var userNullTip=document.getElementById("userNullTip");  //获得提示标签  
+      		if(userElement.value.length==0){  
+        		 userNullTip.innerHTML="<font color='red'>请输入用户名！</font>";//设<label>标签红色提示内容   
+        		 userFlag=false;
+     		 }  
+     		 else{  
+         		userFlag=true;  
+      		}  
+  		 }  
+	   function focusUser(){  
+	      var userNullTip=document.getElementById("userNullTip");  
+	      userNullTip.innerHTML="";   //隐藏红色提示文字  
+	      userFlag=false;  
+	   }
+	 //判断密码输入是否为空，如果为空给出错误提示
+	   function checkPassword(){   
+	      var passwordElement=document.getElementById("password");  
+	      var passwordNullTip=document.getElementById("passwordNullTip");  
+	      if(passwordElement.value.length==0){  
+	         passwordNullTip.innerHTML="<font color='red'>请输入密码！</font>";//设置红色提示内容   
+	         passwordFlag=false;
+	      }  
+	      else{  
+	         passwordFlag=true;  
+	      }  
+	   }  
+	   function focusPassword(){  
+	      var passNullTip=document.getElementById("passwordNullTip");  
+	      passNullTip.innerHTML="";  
+	      passwordFlag=false;  
+	   }  
+	 //判断姓名输入是否为空，如果为空给出错误提示
+	   function checkName(){    
+	      var nameElement=document.getElementById("name");  
+	      var nameNullTip=document.getElementById("nameNullTip");  
+	      if(nameElement.value.length==0){  
+	         nameNullTip.innerHTML="<font color='red'>请输入姓名！</font>";//设置红色提示内容   
+	         nameFlag=false;
+	      }  
+	      else{  
+	         nameFlag=true;  
+	      }  
+	   }  
+	   function focusName(){  
+	      var nameNullTip=document.getElementById("nameNullTip");  
+	      nameNullTip.innerHTML="";  
+	      nameFlag=false;  
+	   }
+       //判断性别输入是否为空，如果为空给出错误提示
+	   function checkSex(){
+	       var sexElement=document.getElementsByTagName("sex");	
+	       var sexNullTip=document.getElementById("sexNullTip");
+	       if(sexElement.value==""){ 	    	   
+	          sexNullTip.innerHTML="<font color='red'>性别不能为空！</font>";//设置红色提示内容   
+	          sexFlag=false;
+	       }  
+	       else{ 
+	          sexFlag=true;        
+	       }  
+	   }  
+	   function focusSex(){  
+	       var sexNullTip=document.getElementById("sexNullTip");  
+	       sexNullTip.innerHTML=""; 	       
+	       sexFlag=true;
+	   }
+	 //判断手机号符不符合要求，如果为空给出错误提示 
+	   function checkTelephone(){   
+           var telephoneElement=document.getElementById("telephone"); //获得telephone输入标签  
+           var telephoneNullTip=document.getElementById("telephoneNullTip");  //获得提示标签  			               
+           var pattern=/(^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$)|(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;//验证手机号
+		   if (telephoneElement.value.length == 0){
+			   telephoneNullTip.innerHTML="<font color='red'>请输入手机号！</font>";
+			   telephoneFlag = false;
+		   }else if (!pattern.test(telephoneElement.value)){
+	       	   telephoneNullTip.innerHTML="<font color='red'>手机号格式不正确！</font>";//设<label>标签红色提示内容
+	       	   telephoneFlag = false;
+	       }else{
+	    	   telephoneFlag = true;
+	       }
+       }  
+       function focusTelephone(){  
+          var telephoneNullTip=document.getElementById("telephoneNullTip");  
+          telephoneNullTip.innerHTML="";   //隐藏红色提示文字
+          telephoneFlag = false;
+       }
+     //判断邮箱符不符合要求，如果为空给出错误提示
+       function checkEmail() {  
+		var emailElement = document.getElementById("email"); //获取email输入标签
+   	 	var emailNullTip=document.getElementById("emailNullTip");  //获得提示标签
+    	var epattern = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;  
+    	if (emailElement.value.length == 0){
+			   emailNullTip.innerHTML="<font color='red'>请输入邮箱！</font>";
+			   emailFlag = false;
+	    }else if (!epattern.test(emailElement.value)){
+          	    emailNullTip.innerHTML="<font color='red'>邮箱格式不正确！</font>";//设<label>标签红色提示内容
+          	    emailFlag = false;
+           }else{
+       	    emailFlag = true;
+           }
+       }  
+       function focusEmail(){  
+          var emailNullTip=document.getElementById("emailNullTip");  
+          emailNullTip.innerHTML="";   //隐藏红色提示文字  
+          emailFlag = false;
+       }
+     //判断学校输入是否为空，如果为空给出错误提示
+       function checkSchool(){   
+	       var schoolElement=document.getElementById("school");  
+	       var schoolNullTip=document.getElementById("schoolNullTip");  
+	       if(schoolElement.value.length==0){  
+	          schoolNullTip.innerHTML="<font color='red'>请输入学校！</font>";//设置红色提示内容   
+	          schoolFlag=false;
+	       }  
+	       else{  
+	          schoolFlag=true;  
+	       }  
+	   }  
+	   function focusSchool(){  
+	       var schoolNullTip=document.getElementById("schoolNullTip");  
+	       schoolNullTip.innerHTML="";  
+	       schoolFlag=false;  
+	   }
+	   function submitFlag(){		  		   
+	      if(userFlag==true&&passwordFlag==true&&nameFlag==true&&sexFlag==true&&telephoneFlag==true&&emailFlag==true&&schoolFlag==true){ //如果用户名和密码输入都不为空，则允许提交  
+	    	  alert("添加成功！");
+	    	  return true;  
+	      }  
+	      else{  
+	         alert("输入数据有误，请重新输入！");
+	         return false;  
+	      }   
+	   }
+	</script>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -21,6 +172,7 @@
             </ul>
         </div>
         <div class="top-info-wrap">
+        	当前用户：${admin.adminName}
             <ul class="top-info-list clearfix">
                <input type="button" class="btn btn-primary btn2" onclick="b()" value="退出" />
             </ul>
@@ -53,7 +205,7 @@
         </div>
         <div class="result-wrap">
             <div class="result-content">
-                <form action="${ctx}/adminlogin/save" method="post" id="myform" name="myform">
+                <form action="${ctx}/adminlogin/save" onsubmit = "return submitFlag()" method="post" id="myform" name="myform">
                     <table class="insert-tab">
                     	<div>
                         <tbody>
@@ -61,44 +213,57 @@
                            <span>
 							<th><i class="require-red">*</i>登录名：</th>
 							<td>
-							<input id="title"class="common-text required" type="text" name="username" size="50" onBlur="checkUser()" onfocus="focusUser()"onkeyup="this.value=this.value.replace(/[, ]/g,'')"/>  
-
+							<input id="title"class="common-text required" type="text" name="username" placeholder="请输入登录名" size="50" onBlur="checkUser()" onfocus="focusUser()"/>  
+            				<label id="userNullTip"></label>  
             				</td>
             				</tr>
+            				
             				<tr>
             				 <th><i class="require-red">*</i>密码：</th>
 							<td>
-           					<input id="password"class="common-text" type="password" name="userpassword" size="50" onBlur="checkPassword()" onfocus="focusPassword()" onkeyup="this.value=this.value.replace(/[, ]/g,'')"/>  
+           					<input id="password" class="common-text" type="password" name="userpassword" placeholder="请输入密码" size="50" onBlur="checkPassword()" onfocus="focusPassword()"/>  
+            				<label id="passwordNullTip"></label>  
+            				</td>
             				
-            				  </td>
-            				 </tr> 
+            				</tr>        
+				        	<span style="font-size:18px;"></span>
 							<tr>
-                                <th>姓名：</th>
-                                <td><input class="common-text" name="realname" size="50"  type="text"></td>
+                                <th><i class="require-red">*</i>姓名：</th>
+                                <td><input id="name" class="common-text"  name="realname" placeholder="请输入姓名" size="50" value="" type="text" onBlur="checkName()" onfocus="focusName()"/>
+                                <label id="nameNullTip"></label>
+                                </td>
                             </tr>
 						    <tr>
-                                <th>性别：</th>
-                                <td><input name="sex" type="radio" value="男"/>男
-                                	<input name="sex" type="radio" value="女">女</td>
+                                <th><i class="require-red">*</i>性别：</th>
+                                <td>
+                             	    <input id="male" value="男" name="sex" type="radio" value="" onBlur="checkSex()" onfocus="focusSex()"/>男
+                                	<input id="famale" value="女" name="sex" type="radio" value="" onBlur="checkSex()" onfocus="focusSex()"/>女
+                                	<label id="sexNullTip"></label>
+                                </td>
                             </tr>
 							<tr>
-                                <th>联系方式：</th>
-                                <td><input id="telephone" placeholder="请输入11位数字" class="common-text" name="tel" size="50"  type="text"onBlur="checktelephone()" onfocus="focustelephone()">
-                            	 <label id="telephoneNullTip"></label>
-                            	  <span style="font-size:18px;"></span> 
+                                <th><i class="require-red">*</i>联系方式：</th>
+                                <td><input id="telephone" placeholder="请输入手机号" class="common-text" name="tel" size="50" value="" type="text"onBlur="checkTelephone()" onfocus="focusTelephone()"/>
+                            	<label id="telephoneNullTip"></label>
+                            	<span style="font-size:18px;">
+                        		</span> 
 			            </td>  
 			            </tr>
-						<tr>
-			
-                                <th>邮箱：</th>
-                                <td><input type="text" id="email" name="email" size="50" onblur="return emailCheck('email', 'email')"/> </td>
+						<tr>						
+                                <th><i class="require-red">*</i>邮箱：</th>
+                                <td><input type="text" id="email" name="email" size="50" placeholder="请输入邮箱" onblur="checkEmail()" onfocus="focusEmail()"/>
+                                <label id="emailNullTip"></label>
+                            	<span style="font-size:18px;"> </span>
+                                </td>
                             </tr>
+                            
 							<tr>
-                                <th>学校：</th>
-                                <td><input class="common-text" name="school" size="50" value="" type="text"></td>
+                                <th><i class="require-red">*</i>学校：</th>
+                                <td><input id="school" class="common-text"  name="school" placeholder="请输入学校" size="50" value="" type="text" onBlur="checkSchool()" onfocus="focusSchool()"/>
+                                <label id="schoolNullTip"></label>
+                            	<span style="font-size:18px;"> </span>
+                                </td>
                             </tr>
-                           
-                            <tr>
                                 <th></th>
                                 <td>
                                     <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
