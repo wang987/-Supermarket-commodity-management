@@ -33,6 +33,7 @@ public class ImExGoodsController {
 		if(tag.equals("buy")){
 			int precount=this.imExGoodsServiceImpl.getProduct(productid).getCount();
 			this.imExGoodsServiceImpl.addCount(productid, count+precount);
+			return "forward:/queryproduct/query";
 		}else if(tag.equals("sell")){
 			Date now =new Date();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
