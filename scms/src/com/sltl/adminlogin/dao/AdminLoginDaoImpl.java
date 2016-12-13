@@ -108,9 +108,9 @@ public class AdminLoginDaoImpl extends BaseDao{
 		String url="jdbc:mysql://localhost:3306/"+name+"?useUnicode=true&characterEncoding=UTF-8";
 		Connection c=DriverManager.getConnection(url, "root", "123456");
 		Statement s=c.createStatement();
-		String sql1=" create table product(productid int primary key,name varchar(20),count int,bid float,price float,profit float );";
-		String sql2=" create table sales(salesid int primary key,date date,salecount int);";
-		String sql3=" create table productsales(productsales int primary key,productid int,salesid int)";
+		String sql1=" create table product(productid int auto_increment primary key,name varchar(20),count int,bid float,price float,profit float );";
+		String sql2=" create table sales(salesid int auto_increment primary key,date date,salecount int);";
+		String sql3=" create table productsales(productsales int auto_increment primary key,productid int,salesid int)";
 		s.execute(sql1);
 		s.execute(sql2);
 		s.execute(sql3);

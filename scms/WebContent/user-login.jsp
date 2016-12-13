@@ -9,29 +9,12 @@
     <title>『校园超市商品』后台管理</title>
     
     <link href="${ctx}/css/admin_login.css" rel="stylesheet" type="text/css" />
-        <style>
-   
-         body {background-image:url(images/1.jpg);}
-         h2 {font-size:40px; text-align:center; }
-        
+    <style>  
+         body {background-image:url(${ctx}/images/bg.jpg);}
+         h2 {font-size:49px; text-align:center;color:white;font-family:'宋体' ;font-weight:400; }
         </style>
-	<script type="text/javascript">  
-      function checkuser() {  
-         if($('user') == "admin" && $('pwd') =="123456") {  
-            return true; 
-         }else { 
-            alert("账号或密码有误，请重新登录");
-			return false;
-         }
-      }  
-        
-      function $(id) {  
-        return document.getElementById(id).value;  
-      }  
- 
-     </script>
 </head>
-<body style="background-color:#FFFFE0;">
+<body>
 <div class="admin_login_wrap">
     <h2>用户登录</h2>
    	<h4 align="center" style="color:red;">${errormessage}</h4>
@@ -39,22 +22,19 @@
         <div class="admin_input">
             <form action="${ctx}/userlogin/login">
                 <ul class="admin_items">
-                    <li>
-                        <label for="user">用户名：</label>
-                        <input type="text" name="username" value="${username}" id="user" size="40" class="admin_input_style" />
+                    <li>                       
+                        <input type="text" name="username" value="${username}" id="user" size="40" placeholder="请输入用户名" class="admin_input_style" />
                     <li>
                   
-                    <li>
-                        <label for="pwd">密码：</label>
-                        <input type="password" name="pwd" value="${psw}" id="pwd" size="40" class="admin_input_style" />
+                    <li>                        
+                        <input type="password" name="pwd" value="${psw}" id="pwd" size="40" placeholder="请输入密码" class="admin_input_style" />
                     </li>
                      <li>
-                        <input type="text" name="yzm" size="8" class="admin_input_style" />
+                        <input type="text" name="yzm" size="20" placeholder="请输入验证码" class="admin_input_style" />
                         <img src="${ctx}/CheckCodeServlet" id="Yzm" onclick="this.src=this.src+'?'"/>
-                        <a href="javascript:Yzm.onclick()">看不清，换一张</a>
                     </li>
                     <li>
-                        <input type="submit" tabindex="3" value="提交" class="btn btn-primary" />
+                        <input type="submit" tabindex="3" value="登录" class="btn btn-primary" />
                     </li>
                 </ul>
             </form>

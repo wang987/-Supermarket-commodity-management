@@ -11,49 +11,98 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css"/>
     <script type="text/javascript" src="${ctx}/js/libs/modernizr.min.js"></script>
     <script type="text/javascript">
-    window.onload=function(){
-        var title = document.getElementById('title');
-        var titleTip = document.getElementById('titleTip');
-        var number = document.getElementById('number');
-        var numberTip = document.getElementById('numberTip');
-        var bid = document.getElementById('bid');
-        var bidTip = document.getElementById('bidTip');
-        var price = document.getElementById('price');
-        var priceTip = document.getElementById('priceTip');
-        console.log(titleTip);
-        var push = document.getElementById('push');
-        title.onblur = function(){
-            if(title.value == ''){
-                titleTip.style.display="inline";
-            }else{
-                titleTip.style.display="none";
-            }
-        }
-        number.onblur = function(){
-            if(number.value == ''){
-                numberTip.style.display="inline";
-            }else{
-                numberTip.style.display="none";
-            }
-        }
-        bid.onblur = function(){
-            if(bid.value == '' || bid.value == 0 || bid.value < 0){
-                bidTip.style.display="inline";
-            }else{
-                bidTip.style.display="none";
-            }
-        }
-        price.onblur = function(){
-            if(price.value == '' || price.value == 0 || price.value < 0){
-                priceTip.style.display="inline";
-            }else{
-                priceTip.style.display="none";
-            }
-        }
-        push.onclick = function(){
-            alert("您确定要提交吗?");
-        }
-    }
+    	var titleFlag = false;
+    	var numberFlag = false;
+    	var BidFlag = false;
+    	var PriceFlag = false;
+    	//判断商品名是否为空，如果为空则提示；
+    	function checkTitle(){
+    		var titleElement = document.getElementById("title");
+    		var titleNullTip = document.getElementById("titleNullTip");
+    		if(titleElement.value.length == 0){
+    			titleNullTip.innerHTML = "<font color = 'red'>请输入商品名！</font>";
+    			titleFlag = false;
+    		}else{
+    			titleFlag = true;
+    		}    		
+    	}
+    	function focusTitle(){
+    		var titleNullTip = document.getElementById("titleNullTip");
+    		titleNullTip.innerHTML = "";
+    		titleFlag = false;
+    	}
+    	//判断商品数量是否为空或是否符合规范，如果为空或不符合规范则提示；
+    	function checkNumber(){
+    		var numberElement = document.getElementById("number");
+    		var numberNullTip = document.getElementById("numberNullTip");
+    		var numberPattern=/(^[1-9]\d*$)/;
+    		if(numberElement.value.length == 0){
+    			numberNullTip.innerHTML = "<font color = 'red'>请输入数量！</font>";
+    			numberFlag = false;
+    		}else if(!numberPattern.test(numberElement.value)){
+    			numberNullTip.innerHTML = "<font color = 'red'>请输入正整数！</font>";
+    			numberFlag = false;
+    		}else{
+    			numberFlag = true;
+    		}
+    	}
+    	function focusNumber(){
+    		var numberNullTip = document.getElementById("numberNullTip");
+    		numberNullTip.innerHTML = "";
+    		numberFlag = false;
+    	}
+    	
+    	//判断商品进价是否为空或是否符合规范，如果为空或不符合规范则提示；
+    	function checkBid(){
+    		var bidElement = document.getElementById("bid");
+    		var bidNullTip = document.getElementById("bidNullTip");
+    		var bidPattern=/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
+    		if(bidElement.value.length == 0){
+    			bidNullTip.innerHTML = "<font color = 'red'>请输入进价！</font>";
+    			bidFlag = false;
+    		}else if(!bidPattern.test(bidElement.value)){
+    			bidNullTip.innerHTML = "<font color = 'red'>请输入正数！</font>";
+    			bidFlag = false;
+    		}else{
+    			bidFlag = true;
+    		}
+    	}
+    	function focusBid(){
+    		var bidNullTip = document.getElementById("bidNullTip");
+    		bidNullTip.innerHTML = "";
+    		bidFlag = false;
+    	}
+        
+    	//判断商品售价是否为空或是否符合规范，如果为空或不符合规范则提示；
+    	function checkPrice(){
+    		var priceElement = document.getElementById("price");
+    		var priceNullTip = document.getElementById("priceNullTip");
+    		var pricePattern=/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
+    		if(priceElement.value.length == 0){
+    			priceNullTip.innerHTML = "<font color = 'red'>请输入售价！</font>";
+    			priceFlag = false;
+    		}else if(!pricePattern.test(priceElement.value)){
+    			priceNullTip.innerHTML = "<font color = 'red'>请输入正数！</font>";
+    			priceFlag = false;
+    		}else{
+    			priceFlag = true;
+    		}
+    	}
+    	function focusPrice(){
+    		var priceNullTip = document.getElementById("priceNullTip");
+    		priceNullTip.innerHTML = "";
+    		priceFlag = false;
+    	}
+    	//判断所有输入框的数据是否符合规范，如果符合则允许提交，不符合则不允许提交
+    	function submitFlag(){
+    		if(titleFlag == true && numberFlag == true && bidFlag == true && priceFlag == true){
+        		alert("添加成功！");
+        		return true;
+        	}else{
+        		alert("输入数据有误，请重新输入！");
+        		return false;
+        	}
+    	}   	
     </script>
 </head>
 <body>
@@ -65,8 +114,7 @@
                 <li><a class="on" href="index.jsp">首页</a></li>
             </ul>
         </div>
-                
-        </div>
+          <p>你好：${user}</p>       
     </div>
 </div>
 <div class="container clearfix">
@@ -98,35 +146,35 @@
         </div>
         <div class="result-wrap">
             <div class="result-content">
-                <form action="${ctx}/shangpin-insert/add" method="post" id="myform" name="myform" >
+                <form action="${ctx}/shangpin-insert/add" onsubmit = "return submitFlag()" method="post" id="myform" name="myform" >
                     <table class="insert-tab" width="100%">
                         <tbody>
                             <tr>
                                 <th><i class="require-red">*</i>商品名：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="name" size="50" value="" type="text">
-                                    <span id="titleTip" style="color:red;display:none">商品名不能为空</span>
+                                    <input class="common-text required" id="title" name="name" size="50" value="" type="text" onBlur="checkTitle()" onfocus="focusTitle()"/>
+                                    <label id="titleNullTip"></label>
                                 </td>               
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>数量：</th>
                                 <td>
-                                    <input class="common-text required" id="number" name="count" size="50" value="" type="text">
-                                    <span id="numberTip" style="color:red;display:none">数量不能为空</span>
+                                    <input class="common-text required" id="number" name="count" size="50" value="" type="text" onBlur="checkNumber()" onfocus="focusNumber()"/>
+                                    <label id="numberNullTip"></label>
                                 </td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>进价（单位：元）：</th>
                                 <td>
-                                    <input class="common-text required" id="bid" name="bid" size="50" value="" type="text">
-                                    <span id="bidTip" style="color:red;display:none">进价不能为空,负数或者0</span>
+                                    <input class="common-text required" id="bid" name="bid" size="50" value="" type="text" onBlur="checkBid()" onfocus="focusBid()"/>
+                                    <label id="bidNullTip"></label>
                                 </td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>售价（单位：元）：</th>
                                 <td>
-                                    <input class="common-text required" id="price" name="price" size="50" value="" type="text">
-                                    <span id="priceTip" style="color:red;display:none">售价不能为空,负数或者0</span>
+                                    <input class="common-text required" id="price" name="price" size="50" value="" type="text" onBlur="checkPrice()" onfocus="focusPrice()"/>
+                                    <label id="priceNullTip"></label>
                                 </td>
                             </tr>
                             

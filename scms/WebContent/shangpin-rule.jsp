@@ -29,11 +29,9 @@
         		
         	}
     		if(d.tagName=='INPUT'){
-    			for(var i=0;i<document.getElementsByTagName("form").length;i++){
-    				alert(document.getElementsByTagName("form")[i].action);
+    			for(var i=0;i<document.getElementsByTagName("form").length;i++){   				
     				var str=document.getElementsByTagName("form")[i].action;
     				document.getElementsByTagName("form")[i].action=str+"?predate="+pre+"&nowdate="+now; 
-    				alert(document.getElementsByTagName("form")[i].action);
     			}
     			
     			//d.click();
@@ -98,9 +96,9 @@
                 
             </ul>
         </div>
-        <div><input id="predate" value="1996-06-01" type="text" onClick="WdatePicker()"/></div>
+        <div><input id="predate" value="2016-01-01" type="text" onClick="WdatePicker()"/></div>
 			
-		<div><input id="nowdate" value="2016-12-10" type="text" onClick="WdatePicker()"/></div>
+		<div><input id="nowdate" value="2016-12-13" type="text" onClick="WdatePicker()"/></div>
     </div>
     <!--/sidebar-->
     <div class="main-wrap">

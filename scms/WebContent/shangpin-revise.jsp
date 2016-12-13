@@ -12,7 +12,6 @@
     <script type="text/javascript" src="${ctx}/js/libs/modernizr.min.js"></script>
     <script type="text/javascript">
     	window.onload = function(){
-    		alert("你好");
     		var sHref = window.location.href//测试数据，实际情况是用window.location.href得到URL
     		var args = sHref.split("?");
     		var retval = ""; 
@@ -24,8 +23,7 @@
     		args = str.split("&"); 
     		for(var i = 0; i < args.length; i++ ) 
     		{ 
-    			str = args[i]; 
-    			alert(str); 
+    			str = args[i];  
     			var arg = str.split("="); 
     			if(arg.length <= 1) continue; 
     			retval =decodeURIComponent(arg[1]); 

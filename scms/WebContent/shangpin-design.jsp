@@ -43,6 +43,32 @@
         	var a=document.getElementById("submita").href = "${ctx}/shangpin-revise.jsp?name="+encodeURIComponent(name)+"&count="+count; 
        		document.getElementById("submita").click();
         }
+        function c(index)
+     	{
+        	var id=document.getElementsByClassName('productid')[index].innerText;
+    		var i=document.getElementsByClassName('changecount')[index].value;
+       		if(i.length!=0&&i>=0&&i%1==0){
+       			var a=document.getElementById("submita").href = "${ctx}/imexgoods/goods?productid="+id+"&count="+i+"&tag=sell"; 
+           		alert(a);
+       			document.getElementById("submita").click();
+       			
+       		}else{
+       			alert("参数不正确，不能为空，必须是大于0的整数");
+       		}
+       	}
+        function b(index)
+     	{
+    		var id=document.getElementsByClassName('productid')[index].innerText;
+    		var i=document.getElementsByClassName('changecount')[index].value;
+       		if(i.length!=0&&i>=0&&i%1==0){
+       			var a=document.getElementById("submita").href = "${ctx}/imexgoods/goods?productid="+id+"&count="+i+"&tag=buy"; 
+           		alert(a);
+       			document.getElementById("submita").click();
+       			
+       		}else{
+       			alert("参数不正确，不能为空，必须是大于0的整数");
+       		}
+       	}
     </script>
 </head>
 <body>
@@ -129,15 +155,16 @@
                             <td>
                                 <input type="button" name="${vi.index}" onClick="alter(this.name)" value="修改">
                                 <input type="button" name="${vi.index}" onClick="a(this.name)" value="删除" />
+                                <input type = "button" name="${vi.index}" onClick="c(this.name)" value = "出货"></input>
+								<input type = "text" class="changecount" name = "number" id="count" value = ""></input>
+								<input type = "button" name="${vi.index}" onClick="b(this.name)" value ="进货"></input>
                             </td>
                         </tr>
 						</c:forEach>
                     </table>
                     <div class="list-page">
                     <ul class="pagination">
-					  <li><a href="${ctx}/queryproduct/query?nowpage=${nowpage-1}">«</a></li>
-					  
-					  
+					  <li><a href="${ctx}/queryproduct/query?nowpage=${nowpage-1}">«</a></li>					  					  
 					  <c:forEach begin="1" end="${queryend}" step="1" var="i">
 					  	<li><a href="${ctx}/queryproduct/query?nowpage=${i}">${i}</a></li>
 					  </c:forEach>

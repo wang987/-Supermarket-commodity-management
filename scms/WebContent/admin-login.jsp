@@ -107,8 +107,8 @@
         </dd>
     </form>
     <dd>
-        <p>© 2015-2016 AMJ 版权所有</p>
-        <p>沪xx-xxxxx-x</p>
+        <p>© 2016-2017 AMJ 版权所有</p>
+        <p>冀xx-xxxxx-x</p>
     </dd>
 </dl>
 </body>

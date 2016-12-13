@@ -19,11 +19,11 @@ if(request.getSession().getAttribute("admin")==null)
     function exit() {
     	var msg = "您真的确定要退出吗？\n\n请确认！";
     	if (confirm(msg)==true){
-    	return true;
+    		return true;
     	}else{
-    	return false;
+    		return false;
     	}
-    }                	
+    } 
     </script>
 </head>
 <body>

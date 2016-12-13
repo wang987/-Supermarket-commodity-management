@@ -120,7 +120,9 @@ if(request.getSession().getAttribute("admin")==null)
                         </c:forEach>
                         </tbody>
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page">
+                    
+					</div>
                 </div>
             </form>
         </div>
