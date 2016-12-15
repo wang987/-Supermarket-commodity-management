@@ -160,6 +160,14 @@ if(request.getSession().getAttribute("admin")==null)
 	         return false;  
 	      }   
 	   }
+	   function exit() {
+	    	var msg = "您真的确定要退出吗？\n\n请确认！";
+	    	if (confirm(msg)==true){
+	    		window.location.href="${ctx}/admin-login.jsp";
+	    	}else{
+	    		return false;
+	    	}
+	    } 
 	</script>
 </head>
 <body>
@@ -174,7 +182,7 @@ if(request.getSession().getAttribute("admin")==null)
         <div class="top-info-wrap">
         	当前用户：${admin.adminName}
             <ul class="top-info-list clearfix">
-               <input type="button" class="btn btn-primary btn2" onclick="b()" value="退出" />
+               <input type="button" class="btn btn-primary btn2" onclick="exit()" value="退出" />
             </ul>
         </div>
     </div>

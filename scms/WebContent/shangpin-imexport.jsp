@@ -18,7 +18,7 @@
     		var i=document.getElementsByClassName('count')[index].value;
        		if(i.length!=0&&i>=0&&i%1==0){
        			var a=document.getElementById("submita").href = "${ctx}/imexgoods/goods?productid="+id+"&count="+i+"&tag=sell"; 
-           		alert(a);
+           	
        			document.getElementById("submita").click();
        			
        		}else{
@@ -31,7 +31,7 @@
     		var i=document.getElementsByClassName('count')[index].value;
        		if(i.length!=0&&i>=0&&i%1==0){
        			var a=document.getElementById("submita").href = "${ctx}/imexgoods/goods?productid="+id+"&count="+i+"&tag=buy"; 
-           		alert(a);
+           		
        			document.getElementById("submita").click();
        			
        		}else{
