@@ -43,8 +43,8 @@ public class UserLoginController {
 			return "user-login";
 		}
 		System.out.println(lu);
-		DataSourceContextHolder.setDbInfo(lu.getUsername()+ "," + "root" + ","+ "123456");
-		session.setAttribute("dbInfo",lu.getUsername()+ "," + "root" + ","+ "123456");
+		DataSourceContextHolder.setDbInfo(lu.getUsername()+ "user_" + "," + "root" + ","+ "123456");
+		session.setAttribute("dbInfo",lu.getUsername()+ "user_" + "," + "root" + ","+ "123456");
 		System.out.println("线程："+DataSourceContextHolder.getDbInfo());
 		if(yzm.equalsIgnoreCase(sRand)==false){//验证码
 			errormessage="验证码错误";
