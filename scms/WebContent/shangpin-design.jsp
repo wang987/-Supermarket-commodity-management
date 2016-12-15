@@ -43,6 +43,11 @@
         	var a=document.getElementById("submita").href = "${ctx}/shangpin-revise.jsp?name="+encodeURIComponent(name)+"&count="+count; 
        		document.getElementById("submita").click();
         }
+<<<<<<< HEAD
+=======
+        
+        
+>>>>>>> a332840f3d05dc4bda171442b4389c2a2bf7157a
         function c(index)
      	{
         	var id=document.getElementsByClassName('productid')[index].innerText;
@@ -56,7 +61,11 @@
        			alert("参数不正确，不能为空，必须是大于0的整数");
        		}
        	}
+<<<<<<< HEAD
         function b(index)
+=======
+    	function b(index)
+>>>>>>> a332840f3d05dc4bda171442b4389c2a2bf7157a
      	{
     		var id=document.getElementsByClassName('productid')[index].innerText;
     		var i=document.getElementsByClassName('changecount')[index].value;
