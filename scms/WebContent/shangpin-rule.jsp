@@ -98,7 +98,7 @@
         </div>
         <div><input id="predate" value="2016-01-01" type="text" onClick="WdatePicker()"/></div>
 			
-		<div><input id="nowdate" value="2016-12-13" type="text" onClick="WdatePicker()"/></div>
+		<div><input id="nowdate" value="2016-12-25" type="text" onClick="WdatePicker()"/></div>
     </div>
     <!--/sidebar-->
     <div class="main-wrap">

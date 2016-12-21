@@ -33,7 +33,7 @@
      	{
         	var i=document.getElementsByClassName('productid')[index].innerText;
        		var a=document.getElementById("submita").href = "${ctx}/delete/delete?productid="+i; 
-       		alert(a);
+       	
        		document.getElementById("submita").click();
      	}
         function alter(index){
@@ -43,35 +43,35 @@
         	var a=document.getElementById("submita").href = "${ctx}/shangpin-revise.jsp?name="+encodeURIComponent(name)+"&count="+count; 
        		document.getElementById("submita").click();
         }
-<<<<<<< HEAD
-=======
+
+
         
         
->>>>>>> a332840f3d05dc4bda171442b4389c2a2bf7157a
+
         function c(index)
      	{
         	var id=document.getElementsByClassName('productid')[index].innerText;
     		var i=document.getElementsByClassName('changecount')[index].value;
        		if(i.length!=0&&i>=0&&i%1==0){
        			var a=document.getElementById("submita").href = "${ctx}/imexgoods/goods?productid="+id+"&count="+i+"&tag=sell"; 
-           		alert(a);
+           	
        			document.getElementById("submita").click();
        			
        		}else{
        			alert("参数不正确，不能为空，必须是大于0的整数");
        		}
        	}
-<<<<<<< HEAD
-        function b(index)
-=======
+
+ 
+
     	function b(index)
->>>>>>> a332840f3d05dc4bda171442b4389c2a2bf7157a
+
      	{
     		var id=document.getElementsByClassName('productid')[index].innerText;
     		var i=document.getElementsByClassName('changecount')[index].value;
        		if(i.length!=0&&i>=0&&i%1==0){
        			var a=document.getElementById("submita").href = "${ctx}/imexgoods/goods?productid="+id+"&count="+i+"&tag=buy"; 
-           		alert(a);
+           		
        			document.getElementById("submita").click();
        			
        		}else{
