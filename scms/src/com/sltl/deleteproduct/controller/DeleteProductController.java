@@ -24,6 +24,6 @@ public class DeleteProductController {
   public String delete(@RequestParam("productid") int productid,
   HttpServletRequest request) throws SQLException{
 	  this.deleteProductServiceImpl.dropProduct(productid);
-	  return "shangpin-design";
+	  return "forward:/queryproduct/query";
   }
 }
