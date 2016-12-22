@@ -73,7 +73,7 @@
                 <li><a class="on" href="${ctx}/index.jsp">首页</a></li>
             </ul>
         </div>
-                
+         <p>你好：${user}</p>       
         </div>
     </div>
 </div>
